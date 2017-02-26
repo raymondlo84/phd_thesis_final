@@ -1,0 +1,136 @@
+\chapter{Future of Wearable Computing}
+
+% Advice: Describe the contributions and how the chapters are linked together (similar to Section 1.5 except more consolidated.  Make statements about applications, significance and how they are all tied together in the framework of humanistic intelligence.  See below for an example, but add more technical terms as you describe the main contributions of the thesis.  Spatiotonal mapping, iCLUT or something!  Maybe even have a bullet list of contributions if appropriate
+
+% Essentially, assume the committee never read anything in your thesis.  What would you like them to know that you did?  Why is this so difficult and important that it is worth a PhD (apart from the fact that this is a fully functional commercial product?  Try to separate that a bit since you want to emphasize what you did before it is commercialized as there will be questions about your own individual contributions if you just focus on "your" product which is really a big teamwork effort to be fair. 
+
+% Also, keep your sentences concise and to the point (Steve's thesis only has 2 pages of conclusion but he had a 200 page thesis)- there's too much reading for someone up to here already if they read your entire thesis.  Summarize, extend, and tell me something new (synthesis of your entire thesis). 
+
+% Need to figure out what to call this: 3-D HDR Aug-mediated Reality Digital Eye Glass?  EyeTap?  Gen-5? 
+% I would say let's make this stand out somehow instead of making it sound incremental (Gen-5...?). 
+% Similar problem in Ch 1 still - just need consistent terminology 
+This thesis proposes the design and practical implementation of a 3D HDR Augmediated Reality Digital Eye Glass system that embodies the principles of humanistic intelligence and extends significantly beyond our human sensory capabilities.  Specifically, the main contributions of this thesis include solving the fundamental limitations of human vision and our sensory capability by extending the dynamic range of the human eye, as demonstrated in the most extreme scenario in tungsten inert gas welding, through real-time 3D stereoscopic HDR management system implemented on both FPGAs and GPUs (\textbf{Chapter~\ref{realtimehdrfpgas}}), and by creating a new form of human-centric computer interaction enabled by a novel form of HDR in space using 3D range sensing cameras (\textbf{Chapter~\ref{3dhdr3dsensing}}) and by a natural gesture input algorithm (\textbf{Chapter~\ref{ar3dgesture}}).  The broader social implications of ubiquitous wearable computing as enabled by the 3-D HRD Augmediated Reality Digital Eye Glass, such as the notion of sousveillance (as opposed to surveillance), were explored in \textbf{Chapter~\ref{freeglassdevelopers}}. 
+
+% Q: What is anti-gestural input? 
+By creating a highly intuitive and portable wearable system that can exceed human capabilities, this platform has become a true extension of the human body and a form of embodied humanistic intelligence.  The final Digital Eye Glass system relies on a tight close feedback loop, in which human and machine work as one entity, thus allowing one to interact with the real world and the virtual world naturally with gestural inputs whereas ultimately the machine can continuously learn from our own action and integrating into our life. The final prototype is an untethered, optical see-through, depth sensor based, and multi-functional wearable system which improves our vision by being able to read distances at millimeter accuracy and navigate freely outdoor under extreme lighting conditions, while being able to perform everyday tasks such as browsing on the web in many social settings.  At one point, I truly felt that I have become a cyborg, and acquired a digital form of superpower, such as night vision, real-time distance measurement, gestural controls with my bare hands without any accessories.  Finally, the design was successfully translated into a commercial development platform that truly opens up a whole new world of possible augmented reality applications for developers around the world in the near future.
+
+\begin{figure*}
+\center
+\includegraphics[width=2in]{ch7/figures/left_white.jpg}
+\includegraphics[width=2in]{ch7/figures/wearable.jpg}
+\includegraphics[width=2in]{ch7/figures/right_blue.jpg}
+
+ \caption{Images of the Digital Eye Glass system worn by me in everyday life. Left and right most images show various 3D printed versions of the Digital Eye Glass prototype. Notice that the depth sensing camera and color camera are mounted on top of the eyeglasses and are constantly scanning the environment. Structured light patterns are projected onto the world, and we can see the infrared light emitting from the sensor array in the right most image. In the center image, we can see the fully untethered setup which runs on a battery powered mobile computer. I was able to perform most of my daily tasks with this setup in both indoor and outdoor settings.}
+ \label{fig:prototypes}
+\end{figure*}
+
+
+
+%%%%========================================================================
+
+% TODO: Need a citation on "life-logging project" 
+% I actually didn't get why/how you created prescription for his right eye?  Do you mean HDR or 3D range sensing somehow corrects his vision?  It doesn't make sense.
+\begin{figure}
+\center
+ \includegraphics[width=5in]{ch7/figures/GordenBell.jpg}
+ \caption{ Gordan Bell, who's a notable scientist and researcher on the life-logging project and received his PhD from MIT, was trying the Digital Eye Glass prototype.  The prototype provided a very delightful experience where he could now see ``better'' than what has otherwise been impossible to achieve with ordinary analog eyeglasses. At the moment he was trying the eyeglasses, he said, ``\textit{You have created the eye formula for my right side (eye)}''. The optics used in the prototype had projected clear image onto his retina and  He gave me the genuine smile that was truly inspiring.}
+ \label{fig:gordanbell}
+\end{figure}
+
+
+%And together, often times, with enough time in wearing the device, often human can adapt to the limitations, such as limited FOV of the camera and forcing the user to 
+
+To summarize, the major contributions of the thesis are outlined as follows: 
+
+% TODO: Here be as technical and thorough as you can.  Read the introduction of every chapter and extract the most important or unique contributions
+\begin{itemize}
+%Ch2
+\item Dynamic Range Management for HDR 3D-Stereo Video
+\begin{enumerate}[(I)]
+\item Achieved the real-time performance system running at 60fps on FPGAs and over 60 fps on @ 1280x720 resolution and enabled various real-time HDR applications.
+\item Verified the robustness of the algorithm and be able to adapt and adjust for rapid changes of extreme lighting in the scene even in TIG welding.  
+\item Created fully functional prototype based on FPGA with the iCLUT method.
+\item Created the fully programmable and flexible pipeline on GPU with iCLUT and hardware optimized local contrast enhancement method based on the GPU-accelerated Recursive Filter in Domain Transform.
+\item Created a customized firmware that allows the 3 exposures settings for handling extreme dynamic cases.
+\item Created a functional DEG which is based on the EyeTap principle for TIG welding purposes.
+\item Demonstrated varies use cases such as remote experts, driving, for using HDR DEG in everyday life.
+\end{enumerate}
+
+%Ch 3
+\item High Dynamic Range in 3D Depth Sensing Technology
+\begin{enumerate}[(I)]
+\item Created the method of extending the range of 3D sensing technology with HDR methods and camera calibration.
+\item Implemented the one time optical calibration process which provide alignments for all sensor data.
+\item Presented the first HDR-3D-RGBD data structure which can be used to address limitations in wearable applications in the future.
+\item Created the functional prototype which runs the HDR-3D-RGBD in real-time (\~30fps). 
+\end{enumerate}
+
+%Ch 4
+\item Gestural Input with Depth Sensors and Machine Learning
+\begin{enumerate}[(I)]
+\item Implemented the depth sensor based gesture recognition system onto a mobile platform with real-time (\~30fps) performance.
+\item Attained 98\% accuracy in recognition with 4 basic gesture modes.
+\end{enumerate}
+
+%Ch 5
+\item Social Implications and Applications in DEG. 
+\begin{enumerate}[(I)]
+\item Explored and discussed on the topic of sousveillance and Aliba application in DEG 
+\item Created the framework for open source, and freeglass project that allows the DEG to be ubiquitous platform for research in wearable  
+\end{enumerate}
+
+\end{itemize}
+
+% IMPORTANT: No do NOT call this an "ongoing" effort - it's complete (you're done, hence PhD defense), but the future directions to explore in AR include. 
+% This section needs some citations perhaps.  
+% Also be careful about how you approach this section (wording is important); otherwise, you are listing all the weaknesses of your thesis.  It should be more like the future directions
+\section{Future Directions in AR}
+
+
+%%%%========================================================================
+%%<This section is slightly vague and does not seem to belong here!   This is more like the future unless you tie it back to the HI principles as explored by your Digital Eye Glass system>>>>>  
+
+Fundamentally, each of the tool created for the DEG must follow a set of HI guidelines in order to function with the human. Some principles may seem trivial, such as ``always on" and ``always ready". However, in a wearable computing environment, it is critical that the system can function immediately without cumbersome input devices such as the mouse or the keyboard, or assuming that at the time of use there is access to other machines. The always on, or `power-on-and-ready' mode is critical to DEG especially when one primary purpose of the DEG is a seeing aid. 
+
+Controllability and observability, the two signal paths between the human and machine in the HI principles, are critical. For example, it is often more important to enable the auto-gain with centre-weighted matrices rather than developing a detection algorithm which may have unpredictable outcome even at 1\% detection error rate. That implies that it is very critical for the computer to present information in an intuitive, predictable, or most importantly controllable fashion to the user. Many of the modern electronics such as point and and shoot cameras today often provide no feedbacks to users. Any unpredictable behaviours or any sort of automation that requires extensive conscious attention from the human will eventually create user frustration, and defeated the purpose of wearable.
+
+Furthermore, as high performance computers, sensors, and display hardware become more accessible to researchers, today the field of human-computer interaction has stronger interest in exploring AR/VR as the new medium for humanistic computing, and a number of studies explored various ways to tightly couple human and the machine~\cite{khundam2015first, biocca2013communication, wright2014using, henrikson2016multi}. For example, controller based or hand free interaction~\cite{Arora:vrSketching:2017}, storytelling and narrative~\cite{henrikson2016multi}, sensory augmentation and amplification~\cite{wright2014using}, telepresence communication and human research~\cite{biocca2013communication,earnshaw2014virtual} with AR/VR recently emerged due to the availability of processing power and hardware.
+
+The physical restrictions to human computer interfaces, especially interfaces which are based on the use of panels, controllers, and cameras affixed to the world, have been . Assumptions of a static scene and a lab controlled environment which has limited number of interaction modes often do not apply to wearable computing. Since the computer is always on and becomes a part of our body and mind in our everyday lives with many constantly changing environment and unpredictable situations, and thus 
+
+Designing and building the DEG prototype had many challenges and also embarked many new ideas in addressing the fundamental issues in Augmented Reality. Some of the notable field of researches topics includes the advances in display technology such as HDR displays \cite{reinhard2010high}, lightfield displays\cite{wetzstein2011layered}, or retinal scanning techniques using laser for creating high fidelity, high dynamic range images that also addresses the vergence accommodation conflicts \cite{takahashi2008stereoscopic} in typical 3D stereoscopic displays which are used in the current prototypes. On the other hands, low latency tracking is another essential elements for the wearable experience. The ability to add virtual content in the real world space can provide many emerging applications such as wayfinding and virtual guidance. 
+
+Lastly, the latency and accuracy of input devices serve an important role in the final interaction and experience. In particular, the often lack of haptics feedback and creates a perceptual issue that degrades the users performance \cite{yang2016perceptual}~\cite{buchmann2004fingartips}. The ultimate wearable computer in the future therefore requires addressing the graphics rendering, tracking, and user input problem holistically, and thus HI principles should be the core of such design path.
+
+% TODO: Why don't you just focus on the Future of computing enabled by the translation of the research in this thesis to a commercial development kit.  Introduce the features of the development kit and focus on how they are derived from this thesis (especially Meta 1).  Meta 2 is a group effort, but mention the innovation briefly there.  Focus on what applications and possibilities are enabled by this research development platform.  It's almost a big extension of Ch 5 where you explored social implications, except here it is much more specific and "useful" finally. 
+\section{Moving Beyond Research} 
+
+%%This paragraph is fairly vague = and you are emphasizing collaborators here...
+%The limited availability of hardware (e.g., the capability of the touch panel, controllers, and other tracking devices). Often times, acquiring the expertise across many fields, ranges from industrial design, computer and electrical engineering, mathematics, physicists, to computer science, can be a very difficult task in research field with limited funding. Fortunately, during the time I was in the lab, I had supports from supervisors as well as many of the collaborators who contributed to various critical technical problems. These collective knowledge, is the key success for the thesis, were many of the difficult challenges can be surfaced and researched on, and together pushing the boundary of the problems.
+
+The continuous effort in advancing the DEG had also bought tremendous amount of interested in the industry. Currently, the work explored in this thesis have been further developed into a development kit that is available for purchase in the market~\footnote{Meta 2 Development Kit~\url{http://www.metavision.com}}. The release of Google Glass project from Google, the 2 billion dollars acquisition of Oculus Rift (virtual reality platform), 1.4 billion dollars fund raising from Magic Leap, release of Hololens from Microsoft, and release of Meta 2 Developer Kit from Meta had created a strong momentum behind creating the Augmented Reality and Virtual Reality experience. For example, Fig~\ref{fig:meta1}, \ref{fig:meta2}, and {fig:meta2onstage} shown a commercially available product called Meta Developer Kit. 
+
+In the coming future, we can predict that there will be a natural synergy of human and machine and the success or failure of such synergy would be the existential question for humanity. In the next hundreds of years, humanity will continue to be constraint and bounded by our physical and biological limitations, while machines will continue to be advanced beyond our own capability. Inevitably, the natural machine will become the true extension of our body and mind, thus the raise of super-intelligence, which described in the foundations of this thesis, will finally arrive in our coming generations.
+ % Keep this short and just add a series of screenshots - I wonder if you need all these subsections but it may help for those who skim your text.   
+\begin{figure}
+\center
+ \includegraphics[width=5in]{ch7/figures/small_meta_1_developer_kit.jpg}
+ \caption{Example of Meta 1 Developer Kit. The headset provides the depth sensing solution similar to my original prototypes, and further optimized for close range hand interaction. A field of view extending optics is also embedded in the setup to provide 35 degree FOV, instead of 23 degree FOV in the original setup. By 2015, over 1500 of units were sold and shipped to the customer.}
+ \label{fig:meta1}
+\end{figure}
+
+\begin{figure}
+\center
+ \includegraphics[width=5in]{ch7/figures/Meta-Meta-2-Being-Worn-B.jpg}
+ \caption{Example of Meta 2 Developer Kit being worn. The headset is developed with a set of sensors, which are capable of seeing 270 degrees with the fisheye cameras, and also seeing 3D information with a depth sensor. The headset also provides a large field of view optics which enables a much more immersive experience for data visualization and such.}
+ \label{fig:meta2}
+\end{figure}
+
+\begin{figure}
+\center
+ \includegraphics[width=5in]{ch7/figures/tencent.jpg}
+ \caption{Example of Meta 2's hand tracking and physics engine demonstrated on stage. Notice how I can reach out to virtual content and interact with each of the individual virtual cubes in space with my bare hands. The depth sensor on the headset provides real-time hand tracking and also provided a way of interacting with virtual scene based on 3D point cloud's electric force calculation.}
+ \label{fig:meta2onstage}
+\end{figure}
+
+
