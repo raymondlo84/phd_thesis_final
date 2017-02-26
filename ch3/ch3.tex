@@ -108,7 +108,7 @@ system.
    100 million-to-one input dynamic range as a typical 1000:1 output
    dynamic range.  {\bf Note the way in which it appears that the
      wearer has ``glass eyes''.  What we are seeing is a reflection of
-     the cameras in the exact position of the wearer's eyes.}  }
+     the cameras in the exact position of the wearer's eyes}~\cite{mann2012realtime}. }
  \label{fig:mannvis}
 \end{figure}
 
@@ -506,7 +506,7 @@ the joint photoquantity estimator function for two exposures $ {\Delta EV} $ apa
 range compression function, $f$ is the CRF, and $k$ is the contrast enhancement function. The value 
 of $Q_f (f_1, f_2)$ is evaluated at all possible values of $f_1$ and $f_2$ to create the lookup table 
 shown here. This method can be extended to 12-bit or 14-bit images by applying linear interpolation 
-to obtain intermediate values from an arbitrarily-sized table.}
+to obtain intermediate values from an arbitrarily-sized table~\cite{mann2012realtime}.}
  \label{cdlut}
 \end{figure}
 
@@ -584,7 +584,7 @@ can provide a significant speed-up.
   \caption{Composition of HDR images using our pairwise approach for
     combining three LDR images, $f_1$, $f_2$, and $f_3$. The final
     estimate of the photoquantity $\hat{q}$ then undergoes
-    tonemapping.  }
+    tonemapping~\cite{mann2012realtime}.  }
   \label{composite3}
 \end{figure}
 With an image set of 3 differently exposed images, the dynamic range is extended by another 4 
@@ -649,7 +649,7 @@ replaced by the values from the other LUT.
 \center
   \includegraphics[width=13cm]{ch3/diagrams/3_direct_lut.pdf}
   \caption{Composition of HDR images using a double-LUT approach for
-    combining three LDR images, $f_1$, $f_2$, $f_3$.  }
+    combining three LDR images, $f_1$, $f_2$, $f_3$~\cite{mann2012realtime}.  }
   \label{3_direct_lut}
 \end{figure}
 
@@ -821,7 +821,7 @@ described in Section 3.4.
    in line memory.  The frames are stored in external memory and
    concurrently read back line-by-line.  A direct lookup is performed
    on incoming pixel data and the result is sent through an HDMI
-   transmitter. }
+   transmitter~\cite{mann2012realtime}. }
  \label{fig:fpgahdr}
 \end{figure}
 
@@ -1082,7 +1082,7 @@ Consequently, it reduces the over-stretching effect of equalization.
 \begin{subfigure}[b]{6.2in}
 \centering
   \includegraphics[width=6.0in]{ch2/diagrams/frames/5stops/final_tm_result.jpg}
-  \caption{Our result}
+  \caption{The proposed result~\cite{lo2012high}}
   \label{fig:mouse}
 \end{subfigure}
 %        ~
@@ -1105,9 +1105,9 @@ HDR program.
                  In extreme cases, the HDR composition method by~\cite{debevec2008recovering} 
 introduced artifacts in the shadow area, and the tone mapping algorithms further amplified these 
 defects in the final images.
-                Our result is not only better than these tone mapping algorithms (and the only one to 
+                The final result from the proposed algorithm is not only better than these tone mapping algorithms (and the only one to 
 faithfully show the tip of the tungsten electrode)
-                but it is also capable of running in real-time.}\label{fig:welding_results}
+                but it is also capable of running in real-time~\cite{lo2012high}.}\label{fig:welding_results}
 \end{figure*}
 
 
@@ -1285,7 +1285,7 @@ Implemented Edge-Preserving Method          & 83.33             & $1\times$\\
 \caption{This table shows the run-time of different Tone Mapping Operators and the speed-up of 
 using our implemented method. Our implementation 
 achieves approximately 80 frames-per-second; which is several times faster than other tone mapping 
-operators.}
+operators~\cite{lo2012high}.}
 \label{perf_table}
 \end{table}
 
@@ -1426,7 +1426,7 @@ which derives from enabling 3D HDR are described that can be applied in everyday
 taken, and combined into the HDR images shown on the leftmost. With the HDR video, the sun, and 
 the passenger side can both be visible at the same time. More importantly, the sun from the side 
 mirror is no longer blinding the driver, and we can now see everything clearly inside and outside of 
-the car.}
+the car~\cite{mann2012hdrchitecture}.}
  \label{fig:extremeeveryday3}
 \end{figure}
 Dynamic range issues are often more pronounced in everyday life scenes such as driving. Many 
@@ -1445,7 +1445,7 @@ it is not possible for the camera to see the side mirror and outside condition c
  \includegraphics[width=5.5in]{ch2/diagrams/everyday1.jpg}
  \caption{Example of HDR and color enhancement. The HDR can also prevent saturation from each 
 channel, and thus can enhance the final color fidelity of the image. The final color can also be 
-remapped for color-blinded individual if needed.}
+remapped for color-blinded individual if needed~\cite{mann2012hdrchitecture}.}
  \label{fig:extremeeveryday1}
 \end{figure}
 
@@ -1467,7 +1467,7 @@ both the highlights as well as shadow detail and remapped naturally back onto a 
  \caption{Another example of HDR video captured on the street. At the right side of the frame, the 
 final HDR image can see through the car's windshield and have visibility of what's inside the car. The 
 additional dynamic range provides better seeing into many situation which often human eye cannot 
-see.}
+see~\cite{mann2012hdrchitecture}.}
  \label{fig:extremeeveryday2}
 \end{figure}
 
@@ -1479,16 +1479,18 @@ The eyeglasses automatically track and judge the distance and speed required and
 feedback is critical for the success or failure of the task. In addition, remote experts, who can even be 
 oversea, can provide audio and visual feedbacks and perform any corrective actions. 
 
-\begin{figure}
+\begin{figure*}
 \center
- \includegraphics[width=5in]{ch2/diagrams/remote3.jpg}
+ \includegraphics[width=2in]{ch2/diagrams/remote1.jpg}
+ \includegraphics[width=2in]{ch2/diagrams/remote3.jpg}
+ \includegraphics[width=2in]{ch2/diagrams/remote2.jpg}
  \caption{Remote expert application for TIG Welding. An augmented reality interface is overlayed 
 onto the actual welding scene to instruct the user on how to weld in real-time. Wearer can see the 
 instruction, and get real-time feedback from remote user with the prototype system. Most important, 
 the 3D HDR feature allows clear view of the welding works and the instructions all at the same time 
-without any distractions.}
+without any distractions~\cite{mann2012hdrchitecture}.}
  \label{fig:extremeremote}
-\end{figure}
+\end{figure*}
 
 One observation is the tracking solution is significantly improved by using the HDR tone mapped 
 output. The temporal stability and additional tonal range that is captured by the system have 
@@ -1508,7 +1510,7 @@ completely `blinded' the sensor in the `` HD Video Camera View'' feed. In compar
 shown in the ``EyeTap HDR Stereo View" has much better visibility of the workspace and the 
 extremely bright welding job. The left and right images were captured and processed by the 
 proposed apparatus and HDR algorithm, and projected back onto each of wearer's eyes in full 
-stereo.}
+stereo~\cite{mann2012hdrchitecture}.}
  \label{fig:extreme3dhdr}
 \end{figure}
 
