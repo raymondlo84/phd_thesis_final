@@ -79,7 +79,7 @@ The Kinect system, from Microsoft, was designed to capture motion with the Micro
 \label{fig_first_case}
 \end{subfigure}
 
-\caption{Wearable Digital Eye Glass Prototype. The custom 3D printed design allows users to wear the digital glass in everyday life. The proposed algorithm can be utilized for improving the dynamic range of the camera and thus allowing the users to see ``better''. Notice that the proposed system not only allows users to see in high contrast scenes, it also enables night vision with the use of active depth sensors which project IR light patterns and reconstruct 3D information about the scene. This provides users the ability to see in extreme environment, and also allows for more robust tracking algorithms to be integrated with the eyeglasses.}
+\caption{Wearable Digital Eye Glass Prototype. The custom 3D printed design allows users to wear the digital glass in everyday life. The proposed algorithm can be utilized for improving the dynamic range of the camera and thus allowing the users to see ``better''. Notice that the proposed system not only allows users to see in high contrast scenes, it also enables night vision with the use of active depth sensors which project IR light patterns and reconstruct 3D information about the scene. This provides users the ability to see in extreme environment, and also allows for more robust tracking algorithms to be integrated with the eyeglasses~\cite{lo2013three}.}
 \label{fig_wearable_glass}
 \end{figure*}
 
@@ -101,13 +101,13 @@ There are numerous potential applications for such a system:
 \centering
 \includegraphics[width=3.0in]{ch4/diagrams/high_expo_light.jpg} 
 \includegraphics[width=3.0in]{ch4/diagrams/no_light_depth.jpg} \\
-\caption{Fundamental dynamic range issues in depth-sensing cameras. The limited dynamic range of the sensor often creates blind spots in the scene. In this case, the light bulb blinded the sensor completely leaving a white patch on the scene even with an infrared camara. To overcome this, we can also deploy HDR approaches described in previous chapters.}
+\caption{Fundamental dynamic range issues in depth-sensing cameras. The limited dynamic range of the sensor often creates blind spots in the scene. In this case, the light bulb blinded the sensor completely leaving a white patch on the scene even with an infrared camera. To overcome this, we can also deploy HDR approaches described in previous chapters~\cite{lo2012high,lo2013three}.}
 \label{fig:ir_range_issue}
 \end{figure*}
 
 Generally, surveillance is the monitoring of one's own property such as one's own living room, i.e., a space that one has control over. With surveillance, we can carefully place the camera in the optimal location. For example, in using the Kinect camera to observe a typical living room, the user will often give careful consideration to its placement, being sure to avoid placing it where sunlight might shine in from windows. The user may move lamps out of its field of view, in order to reduce glare that prevents it from working properly.  On the other hand, sousveillance involves seeing in a property that might not belong to the wearer, and the assumption of being static is often invalidated. For example, the gesture-sensing camera or seeing aid must function in any environment where we cannot demand the owner of the space to remove lamps that may be causing glare or similar problems.
 
-When using the Kinect camera as a seeing aid, for self gesturing (gesture-sensing wearable applications), and marker or markerless surface tracking, it would be unreasonable to demand the environment to conform to the user's needs. For example, Fig.~\ref{fig:ir_range_issue} is a common scene where a light blub is presented in an indoor environment. When the light bulb is turned on, the sensor fails to pick up any information around the bright area due to the limited dynamic range of the sensor. 
+When using the Kinect camera as a seeing aid, for self gesturing (gesture-sensing wearable applications), and marker or markerless surface tracking, it would be unreasonable to demand the environment to conform to the user's needs. For example, Fig.~\ref{fig:ir_range_issue} is a common scene where a light bulb is presented in an indoor environment. When the light bulb is turned on, the sensor fails to pick up any information around the bright area due to the limited dynamic range of the sensor. 
 
 Thus, the problem of dynamic range must be solved in the sousveillance device itself without requiring a  change in the environment. Fortunately, advances in sensor technology have enabled the miniaturization of sensors and their use in a robust camera array setup. One way to address the dynamic range limitation is to combine various sensor signals and create a superset which surpasses the capability of any individual sensor alone.
 
@@ -118,7 +118,7 @@ The Microsoft Kinect system employs the PrimeSense 3D sensing technology. The Pr
 \centering
 \includegraphics[width=3.0in]{ch4/diagrams/low_expo_light.jpg} 
 \includegraphics[width=3.0in]{ch4/diagrams/high_expo_light.jpg} \\
-\caption{HDR image set with infrared-based depth sensing camera. By adding an ND-filter on top of the camera or alternating the exposure settings, two separate exposures of the same scene can be acquired. By combining both exposures, we can obtain an HDR image which improves not only in tonal range, but also the spatial range as the lower exposure image can now see the over-exposed foreground, while the higher exposure image can now see the darker background.}
+\caption{HDR image set with infrared-based depth sensing camera. By adding an ND-filter on top of the camera or alternating the exposure settings, two separate exposures of the same scene can be acquired. By combining both exposures, we can obtain an HDR image which improves not only in tonal range, but also the spatial range as the lower exposure image can now see the over-exposed foreground, while the higher exposure image can now see the darker background~\cite{lo2013three}}
 \label{fig:ir_hdr}
 \end{figure*}
 
@@ -153,7 +153,7 @@ In Eq.~\ref{intrinsic_parameters}, ($u_{0}$, $v_{0}$) is the principal point, an
 \centering
 \includegraphics[width=2.5in]{ch4/diagrams/multi_virt_cam2.pdf} \\
 %Camera Configuration and virtual cameras
-\caption{This figure illustrates one of our proposed configurations. Each Kinect camera ($C_1$, $C_2$) provides a 3D measure of the scene. With the 3D data, we can reconstruct the scene and re-position $C_1$ and $C_2$ as a virtual camera $V$ at any arbitrary position. This configuration allows us to perform HDR composition as if the images were simultaneously captured from the same camera. The distance between the cameras $d$ can be estimated using a camera calibration method.}
+\caption{This figure illustrates one of our proposed configurations. Each Kinect camera ($C_1$, $C_2$) provides a 3D measure of the scene. With the 3D data, we can reconstruct the scene and re-position $C_1$ and $C_2$ as a virtual camera $V$ at any arbitrary position. This configuration allows us to perform HDR composition as if the images were simultaneously captured from the same camera. The distance between the cameras $d$ can be estimated using a camera calibration method \cite{lo2013three}.}
 \label{fig_v_camera}
 \end{figure}
 \subsection{Lens Distortion Correction}
@@ -232,7 +232,7 @@ Another key challenge in calibrating the Kinect camera is its lack of exposure c
 %\includegraphics[width=1.1in]{ch4/diagrams/kinect_ir_color_3/on_light/rgb.png}  \\
 %(d) Tungsten light on\\
 %Camera Configuration and virtual cameras
-\caption{Notice that the depth map is not significantly affected by the darkening filter. The structured light code pattern is invariant to small exposure differences; however, there is a significant increase in dynamic range in high contrast scenes when the IR images were overexposed due to the tungsten light bulb. The depth composition algorithm is described in Section~\ref{sec_hdr_depth_map}.}
+\caption{Notice that the depth map is not significantly affected by the darkening filter. The structured light code pattern is invariant to small exposure differences; however, there is a significant increase in dynamic range in high contrast scenes when the IR images were overexposed due to the tungsten light bulb. The depth composition algorithm is described in Section~\ref{sec_hdr_depth_map} \cite{lo2013three}.}
 
 \label{fig_all_camera}
 \end{figure*}
@@ -240,7 +240,7 @@ Another key challenge in calibrating the Kinect camera is its lack of exposure c
 \centering
 \includegraphics[width=7in]{ch4/diagrams/jason_hdr.pdf} 
 \label{fig_jason_dep_hdr}
-\caption{Depth map composition using our proposed algorithm. We combine two different depth maps by performing a weighted sum over the certainty function described in Eq.~\ref{eq_depth_sum}. There is a slight contour in the area where the depth map is undefined as shown in the right most image. These can be addressed by applying spatial filters on the depth map based on the geometry.}
+\caption{Depth map composition using our proposed algorithm. We combine two different depth maps by performing a weighted sum over the certainty function described in Eq.~\ref{eq_depth_sum}. There is a slight contour in the area where the depth map is undefined as shown in the right most image. These can be addressed by applying spatial filters on the depth map based on the geometry~\cite{lo2013three}.}
 \end{figure*}
 \subsubsection{Summary}
 %\begin{figure}
@@ -329,7 +329,7 @@ where $r_i$ denotes the estimated distance from the $ith$ sensor.
 \begin{figure*}
 \centering 
 \includegraphics[width=6.5in]{ch4/diagrams/jason_depth.pdf} 
-\caption{Image pairs used for comparagram construction. Three different Wyckoff sets of two depth maps were captured to cover the full range of depth values. The exposure difference between the bright and the dark infrared image is 1 EV apart. The resulting depth map comparagram per Wyckoff set is shown in the right most column of the figure. Each covers a partial range of depth values in its comparagram.} 
+\caption{Image pairs used for comparagram construction. Three different Wyckoff sets of two depth maps were captured to cover the full range of depth values. The exposure difference between the bright and the dark infrared image is 1 EV apart. The resulting depth map comparagram per Wyckoff set is shown in the right most column of the figure. Each covers a partial range of depth values in its comparagram~\cite{lo2013three}.} 
 \label{fig_depth_parts} 
 \end{figure*}
 %\begin{figure} 
@@ -341,7 +341,7 @@ where $r_i$ denotes the estimated distance from the $ith$ sensor.
 %\end{figure}
 \begin{figure*} 
 \centering \includegraphics[width=6.5in]{ch4/diagrams/jason_collection.pdf} 
-\caption{Comparagram of depth maps taken at various exposure differences. The comparagrams exhibit the same linear mapping of depth values obtained from infrared image pairs that are 1/3, 2/3, 1 or 4/3 stop apart.}
+\caption{Comparagram of depth maps taken at various exposure differences. The comparagrams exhibit the same linear mapping of depth values obtained from infrared image pairs that are 1/3, 2/3, 1 or 4/3 stop apart~\cite{lo2013three}.}
 \label{fig_various} 
 \end{figure*}
 
@@ -370,7 +370,7 @@ Similar to the approach proposed in \cite{lo2012high}, we can easily combine the
 \includegraphics[width=1.7in]{ch4/diagrams/calibration_camera1.jpg} 
 \includegraphics[width=1.7in]{ch4/diagrams/calibration_camera2.jpg} \\
 %Camera Configuration and virtual cameras
-\caption{Camera calibration and 3D projection of the point cloud data in world coordinates. Notice that with our setup, one camera is upside down and the camera calibration is affected by the orientation and perspective difference. The corners from the checkerboard are used for the estimation of $[\mathbf{R}_{ij}~\mathbf{t}_{ij}]$ in the camera calibration step. The images in the second row are the projection of the point cloud data from two separate Kinect cameras $C_{1}$ and $C_{2}$ onto the virtual camera $V$, and rendered with OpenGL. Note that with our configuration, the Kinect cameras can capture differently exposed images at the same time.}
+\caption{Camera calibration and 3D projection of the point cloud data in world coordinates. Notice that with our setup, one camera is upside down and the camera calibration is affected by the orientation and perspective difference. The corners from the checkerboard are used for the estimation of $[\mathbf{R}_{ij}~\mathbf{t}_{ij}]$ in the camera calibration step. The images in the second row are the projection of the point cloud data from two separate Kinect cameras $C_{1}$ and $C_{2}$ onto the virtual camera $V$, and rendered with OpenGL. Note that with our configuration, the Kinect cameras can capture differently exposed images at the same time~\cite{lo2013three}.}
 \label{fig_reproject}
 \label{sec_sim_hdr_mul_kinect}
 \end{figure}
@@ -507,7 +507,7 @@ Our results suggest that by applying high dynamic range imaging technique to bot
 	\label{hdr_result2}
     \end{subfigure}
     
-    \caption{Example of 3DHDR rendering for wearable applications. Notice that the low exposure image captures the detail of the book cover but not the background. On the other hand, the high exposure image captures the background but the highlight details of surfaces such as the book cover and the mouse on the desk are saturated. By combining the images and the depth maps, we performed a 3D reconstruction of the scene from a virtual camera. By projecting the scene onto the wearer's POE, we can reconstruct a scene from the same perspective as how the user may see in real life.}
+    \caption{Example of 3DHDR rendering for wearable applications. Notice that the low exposure image captures the detail of the book cover but not the background. On the other hand, the high exposure image captures the background but the highlight details of surfaces such as the book cover and the mouse on the desk are saturated. By combining the images and the depth maps, we performed a 3D reconstruction of the scene from a virtual camera. By projecting the scene onto the wearer's POE, we can reconstruct a scene from the same perspective as how the user may see in real life~\cite{lo2013three}.}
 \label{fig_3D_HDR_results}
 \end{figure*}
 
