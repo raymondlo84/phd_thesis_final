@@ -1,14 +1,17 @@
-\chapter{FreeGlass for Developers, ``haccessibility''}
+\chapter{FreeGlass for Developers: ``haccessibility''}
 \label{freeglassdevelopers}
 %\section{Abstract}
-We present ``FreeGlass'', a free open-source wearable computer system based on ``Digital Eye Glass'' (also known as EyeTap). FreeGlass is based on free and Open Source principles consistent with a free and openness to the society. FreeGlass is suitable for researchers and creators of Augmediated Reality (AR) Glass, LifeGlogging, etc. in the information society.
 
+% >>>>>>>WL: Cite your "LifeGlogging" paper below (i.e. MASc thesis papers)
+We present ``FreeGlass'', a free open-source wearable computer system based on ``Digital Eye Glass'' (also known as EyeTap). FreeGlass is based on free and Open Source principles consistent with a free and openness to the society. FreeGlass is suitable for researchers and creators of Augmediated Reality (AR) Glass, for purposes such as LifeGlogging, in the information society~\cite{mann2006cyborglogging}.
+
+%  >>>>>>>>>>WL: `ALIBEye'', a digital alibi through sousveillance (so what the hell is alibi?)
 We also present two example applications of FreeGlass: Reality User Interface;
 and ``ALIBEye'', a digital alibi through sousveillance (inverse surveillance).
 We note that the potential for FreeGlass  is to bring about a transition from a surveillance society
 (cameras affixed to land and buildings) to a sousveillance-society (cameras held, carried, or worn by individuals).
 
-We define some of the important elements of a balanced sur/sous-veillance society with a view toward a middle-ground between a surveillance-only society where large entities record interactions but forbid individuals fromkeeping their own record of their sensory information and the coming sousveillance society in which individuals are also equipped with veillance capacity and the capacity to capture AND authenticate their own recordings as
+We define some of the important elements of a balanced sur/sous-veillance society with a view toward a middle-ground between a surveillance-only society where large entities record interactions but forbid individuals from keeping their own record of their sensory information and the coming sousveillance society in which individuals are also equipped with veillance capacity and the capacity to capture AND authenticate their own recordings as
 digital alibis.
 
 \subsection{Sousveillance: Putting Cameras on People}
@@ -49,7 +52,7 @@ A more recently coined word is the word ``sousveillance'', which is an etymologi
          The ``WearCam'' Wearable Camera system, also known as
           Digital Eye Glass (DEG).
          Unlike other technologies of this era (e.g. 3M's Speedglass which
-         darkens globally), the system is camera-based
+         darkens globally), the system is camera-based.
 Therefore, it allows the wearer's vision to be modified
          computationally. 
          Rays of light from the subject matter (here denoted as a ``light bulb''x
@@ -60,14 +63,14 @@ Therefore, it allows the wearer's vision to be modified
          The camera is connected to a display system or aremac
          that re-renders the modified view of visual reality onto the backside
          of the shade (rays denoted as red lines), thus allowing the wearer
-         to see in HDR Augmediated Reality).  Dark areas of the image are
+         to see in HDR Augmediated Reality.  Dark areas of the image are
          augmented, whereas bright areas are
          diminished.  Additionally computer overlays are provided.
-         The injection molded Digital Eye Glass pictured here was developed
-         for everyday use and was presented in 2002.
-         Notice how the wearer has the appearance of having a ``glass eye'',
-         hence the ``glass eye effect''\cite{presenceconnect}, hence the
-         Eye Glass is sometimes called the ``Glass Eye'' or just ``Glass''.
+         %The injection molded Digital Eye Glass pictured here was developed
+         %for everyday use and was presented in 2002.
+        % Notice how the wearer has the appearance of having a ``glass eye'',
+        % hence the ``glass eye effect''\cite{presenceconnect}, hence the
+        % Eye Glass is sometimes called the ``Glass Eye'' or just ``Glass''.
         }
 \label{fig:deg}
 \end{figure}
@@ -262,7 +265,7 @@ See Fig~\ref{fig:qr}.
     \caption{}
      \label{subfig:qrcloseup}
 \end{subfigure}
-  \caption{(a) A massive advertisement with a QR code in a building
+  \caption{(a) A massive advertisement with a QR code
                {\em in a building where cameras
                and smartphones are prohibited}.
                The act of taking this picture to document this absurdity
@@ -413,14 +416,13 @@ In particular, people can conduct:
   \caption{}
 \end{subfigure}
 
-  \caption{(a) A practical approximation to Generation-5 Glass: A stereo
+  \caption{(a) A practical implementation of the Generation-5 Glass: A stereo
            vision display with a true time-of-flight 3D camera system.
-           (b) Hand gesture automatically recognized.
-           Automatic detection of subject matter (tree).
-           Hands and subject matter (tree) segmented from scene using depth
+           (b) Hand gesture automatically recognized along with automatic detection of the subject matter (tree).
+           The hands and subject matter (tree) were segmented from the scene using depth
            information captured by the 3D sensor.
-           (c) Information retrieved and overlaid onto
-           stereo display in real-time. Overlays are rendered next to
+           (c) Information retrieved and overlaid onto the
+           stereo display in real-time. Overlays are rendered next to the
            subject matter for ease of reading/viewing. 
            }
   \label{fig:treehugger}
@@ -443,7 +445,7 @@ example), can be applied to sousveillance.
 
 In particular, an important observation to make is the 3D camera's ability
 to ignore subject matter beyond a certain distance from the camera.
-In this way the 3D camera can distinguish between gestures and near-field
+In this way, the 3D camera can distinguish between gestures and near-field
 subject matter and background clutter.
 For this reason, 3D cameras are more well suited to sousveillance than
 the surveillance they were designed for~\cite{mann2011blind}.
@@ -452,7 +454,7 @@ Wearing the 3D camera gives a setup optimized for near-field time-of-flight sens
 of hand gestures at close range, while ignoring the background --- a task
 that has previously been very difficult with 2D wearable camera systems.
 Background clutter is eliminated from the scene by simply determining
-which areas of the image that are beyond the depth-range of the sensor.
+which areas of the image that are beyond the depth range of the sensor.
 
 %\begin{figure}
 %  \includegraphics[height=1in]{ch6/figs/6ense_und2.jpg}
@@ -471,19 +473,19 @@ Unlike the typical GUI (graphical user interface) found in desktop computing,
 or mobile devices, our system requires only simple gestures, such as the
 ``Outstretched-Hands'' gesture in front of any subject matter,
 as shown in Fig.~\ref{fig:treehugger}.
-This enables seamless interaction between the physical world and
+This enables the seamless interaction between the physical world and
 Digital Eye Glass.
 For example, reaching out to a tree, the tree ``answers back'' with
 information about itself.  Although the Landscaping Department has a
 database of all trees planted, and thus the knowledge could be obtained
 ``top-down'' (i.e. from the authorities), our application allows individuals
 to acquire, disseminate, and share knowledge in a ``bottom-up'' way,
-i.e. through shared sousveillance.  The 3D camera in the eyeglass collects
+ through shared sousveillance.  The 3D camera in the eyeglass collects
 information about the environment, enabling individuals to be producers of
 --- and not merely consumers of --- information.
-Thus the proposed Gen-5 Glass answers the call of ``hacccessibility'',
+Thus, the proposed Gen-5 Glass answers the call of ``hacccessibility'',
 i.e. the DIY (Do-It-Yourself) spirit of community-based knowledge
-acquisition during and about everyday life activities, like enjoying nature.
+acquisition during and about everyday life activities, such as enjoying nature.
 
 
 \section{Alibi sousveillance}
@@ -715,8 +717,8 @@ individuals.
   \caption{A demonstration of the ALIBEye app using a ``News Flash''
            with the Gen-5 Glass.
            A current news headline (Obama's Victory Speech) and a
-           2D bar-code are flashed (briefly projected) onto the environment,
-           e.g. here, another person's shirt, to create a NEWStamp$^{TM}$
+           2D bar-code are flashed (briefly projected) onto the environment
+           (e.g., another person's shirt) to create a NEWStamp$^{TM}$
            that can be seen and recorded
            by the wearer and by others.  The flash duration can be short
            enough to be invisible to the naked eye, but only seen by
@@ -729,12 +731,12 @@ ALIBEye is an app that uses Gen-5 Glass to project a pattern (visible or
 infrared) onto the scene and captures recordings of
 that pattern, as shown in Fig~\ref{fig:proj_ray}.
 The barcode can also include a hash of a recording of the wearer's own
-eye, iris pattern, gaze, eye movements, etc., to further bio-metrically
-establish their presence at the scene.
+eye, iris pattern, gaze, or eye movements to further bio-metrically
+establish their presence in the scene.
 The resulting complex interaction is difficult to falsify.
-ALIBEye requires little to no attention from the user, and
-providing continuous automatic updating to the latest temporal code,
-and provides the safety and security benefit to others, not just the wearer.
+ALIBEye requires little to no attention from the user and
+generates continuous automatic updates to the latest temporal code,
+which provides safety and security benefits to others, in addition to the wearer.
 %Not every frame will provide a machine-readable QR code.
 %However, if a significant time has passed since a code was
 %successfully recognized, the user can be alerted unobtrusively via
@@ -758,12 +760,11 @@ and provides the safety and security benefit to others, not just the wearer.
 
 \section{Conclusion}
 We have described a simple easy-to-build ``FreeGlass'' Generation-5
-Digital Eye Glass system along with
-some simple applications that provide useful interaction and can also
+Digital Eye Glass system along with applications that provide useful interactions and can also
 mitigate the one-sided
 effects of surveillance.  In one application, the Generation-5 Glass works as
 a truly interactive self-gesture-sensing apparatus.  Another application,
-``ALIBeye'' (Eyeworn Alibi Veillance) was presented, to make it
+``ALIBeye'' (Eyeworn Alibi Veillance), was presented, to make it
 difficult for the wearer to falsify the timestamp of a sousveillance
 recording.  Sousveillance is not anti-surveillance, and, in fact,
 ALIBEye can even facilitate a cooperation between sousveillance and
