@@ -27,7 +27,7 @@ augmediated reality applications.
 By ``self gesture'' we mean a gesture to one's self, i.e. as sensed by
 a wearable camera system.
 The range camera is mounted onto the wearable display and views the world from
-the user's point of view, aligning with the displayed subject matter.}
+the user's point of view, aligning with the displayed subject matter~\cite{lo2013augmediated}.}
 \end{figure}
 
 %\section{Introduction}
@@ -99,7 +99,7 @@ Specifically an Augmediated Reality device is a device comprising the following 
 \begin{figure*}
 \centering
 \includegraphics[width=\columnwidth]{ch5/figs/train_flow3.pdf}
-\caption{The masked images are cropped, down sampled, and then processed through the neural net to determine the gesture.}
+\caption{The masked images are cropped, down sampled, and then processed through the neural net to determine the gesture~\cite{lo2013augmediated}.}
 \label{flow_diagram}
 \end{figure*}
 
@@ -245,7 +245,7 @@ light bulb, strongly illuminated,
 is both unidentified in the
 depth map and is high in pixel values in the infrared image.
 In other work we show how this problem can be solved using 3D HDR (High Dynamic
-Range) imaging.}
+Range) imaging~\cite{lo2013augmediated}.}
 \label{image_segmentation} 
 \end{figure}
 
@@ -254,7 +254,7 @@ Range) imaging.}
 \includegraphics[width=\columnwidth]{ch5/figs/neural_net-crop.pdf}
 \caption{The neural network implemented, takes 400 pixels at the input layer,
 has 100 nodes in the hidden layer, and 4 output nodes. Each node represents
-the confidence of the input being a specific gesture.}
+the confidence of the input being a specific gesture~\cite{lo2013augmediated}.}
 \label{neural_net}
 \end{figure}
 
@@ -300,7 +300,7 @@ a unique gesture.
 During the classfication of each gesture, the system will recognize the
 two gestures: point-angled and point-up as finger pointing. This helps
 increasing the flexibility of gesture recognition for the users to post
-gestures that are natural to them.}
+gestures that are natural to them~\cite{lo2013augmediated}.}
 \label{gestures}
 \end{figure}
 
@@ -413,7 +413,7 @@ In addition to the form variations, we also attempt to train for the variations 
 %\includegraphics[width=1\columnwidth]{ch5/figs/crop_training.pdf}
 \caption{Demonstration of some of the gestures. The top row is one
 instance of three different gestures and the lower row is examples
-of alternative gestures for each of those in the top row.}
+of alternative gestures for each of those in the top row~\cite{lo2013augmediated}.}
 \label{gesture_data}
 \end{figure}
 %
@@ -434,7 +434,7 @@ The graph shows the iteration at which to stop training the neural network
 --- --- the minimum point of the testing cost.
 Beyond this iteration, more training causes an increase in the testing cost.
 At that iteration, the training set achieves a 99.8\% accuracy and the
-testing set achieves 96.8\% accuracy.}
+testing set achieves 96.8\% accuracy~\cite{lo2013augmediated}.}
 \label{stop_graph}
 \end{figure}
 \subsubsection{Data Collection}
@@ -453,7 +453,7 @@ The Epson Moverio BT-100 is a head-mounted display that uses a transparent scree
 \includegraphics[height=1.8in]{ch5/figs/wearable/low_res/eyetap_mann_glass.jpg}
 \includegraphics[height=1.8in]{ch5/figs/wearable/low_res/eyetap_slim_IMG_2408.jpg}
 \caption{Example of FreeGlass which combines the 3D sensing camera from SoftKinetic
-and the transparent digital eye glass display from EPSON. The camera is mounted onto the eye glass with our custom 3D printed parts. 3D camera mounted in our custom enclosure to reduce size and weight. }
+and the transparent digital eye glass display from EPSON. The camera is mounted onto the eye glass with our custom 3D printed parts. 3D camera mounted in our custom enclosure to reduce size and weight~\cite{lo2013augmediated}. }
 \label{fig:3Dcamera_head}
 \end{figure}
 
@@ -489,7 +489,7 @@ The wearable 3D eyeglasses and 3D range sensors provide an novel interface for a
         \includegraphics[width=\columnwidth]{ch5/figs/46}
         \caption{Moving $Drag Me$}\label{drag_me}
     \end{subfigure}
-    \caption{Some sample interactions using the wearable gesture recognition system. Fig \ref{select_off} and Fig \ref{select_on} shows a gesture toggling a virtual-button. Fig \ref{drag_init} and Fig \ref{drag_me} shows a gesture moving a virtual object in the scene.}
+    \caption{Some sample interactions using the wearable gesture recognition system. Fig~\ref{select_off} and Fig~\ref{select_on} shows a gesture toggling a virtual-button. Fig~\ref{drag_init} and Fig~\ref{drag_me} shows a gesture moving a virtual object in the scene~\cite{lo2013augmediated}.}
 \end{figure}
 
 \subsection{(Mediated) Reality Window Manager}
@@ -500,7 +500,7 @@ The wearable 3D eyeglasses and 3D range sensors provide an novel interface for a
 \includegraphics[width=6in]{ch5/figs/coop_surveillance_sousveillance_fixed_with_vi.pdf}
 \caption{Neckworn camera systems for first-person sensing.
          Leftmost: Surveillance camera picture (taken in 1994) was the original
-         source of inspiration.} 
+         source of inspiration~\cite{lo2013augmediated}.} 
 \label{neckcams} 
 \end{figure*}
 
@@ -529,7 +529,7 @@ Here for example, the
 system recognizes a two-corner gesture to overlay a bounding box (blue frame)
 on top of the wearer's view. The blue circles indicate the location of the
 finger tips. An application of such a gesture is to select a region
-of interest from the wearer's view.} 
+of interest from the wearer's view~\cite{lo2013augmediated}.} 
 \label{bounding}
 \label{6sense} 
 \end{figure*}
@@ -567,7 +567,7 @@ In addition to utilizing our gesture recognition system as a preprocessing tool 
                 \label{fig:qr_paper}
         \end{subfigure}
         
-        \caption{Applications of the collaborative gesture-based interface among multiple eyeglasses. Our proposed hardware system allows multiple users to interact with real physical objects, such as QR code on the building, sketchbook, or boxes. Users experience a shared of virtual and physical space through the eyeglasses, and our gestures interface provides an intuitive methods for real-time interaction.}\label{fig:wearable_qr}
+        \caption{Applications of the collaborative gesture-based interface among multiple eyeglasses. Our proposed hardware system allows multiple users to interact with real physical objects, such as QR code on the building, sketchbook, or boxes. Users experience a shared of virtual and physical space through the eyeglasses, and our gestures interface provides an intuitive methods for real-time interaction~\cite{billinghurst2008tangible, lo2013augmediated}.}\label{fig:wearable_qr}
 \end{figure*}
 
 \section{Social Implications}
@@ -607,7 +607,7 @@ bringing their own cameras or cell phones.  See Fig~\ref{surveillancehypocrisy}.
              Hypocrisy of Surveillance: Cameras simultaneously forbidden
              by policy, but
              required to read QR codes in many retail and business
-             establishments.
+             establishments~\cite{lo2013augmediated}.
             }
     \label{surveillancehypocrisy}
 \end{figure}
@@ -648,7 +648,7 @@ See Fig~\ref{building}.
  surveillance in our daily life (i.e., the contradiction of having
  ``no photography''
  allowed while people are under the surveillance of the building's own
- camera/vision systems).
+ camera/vision systems)~\cite{lo2013augmediated}.
 }
     \label{building}
 \end{figure*}
@@ -685,7 +685,7 @@ See infographic in Fig~\ref{infographic}.
            poster that is automatically generated and projected onto the face
            of the building for everyone in the area to see.  The
            ``Wanted'' posters are also visible online together with
-           a ``Rogue Gallery'' of previous photography suspects.}
+           a ``Rogue Gallery'' of previous photography suspects~\cite{lo2013augmediated}.}
   \label{infographic}
 \end{figure*}
 
@@ -721,7 +721,7 @@ system with these sensor components also plays an important role in having
 such a device available to enable further research
 to be explored on a larger scale.
 
-\section{Conclusion}
+\section{Chapter Summary}
 We have proposed FreeGlass, a 3D self-gesture-sensing wearable computer system utilizing a 3D camera.
 We process information from the range camera, in real time, to recognize
 hand gestures. Once we get the user input through the range camera, we
