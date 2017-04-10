@@ -15,7 +15,6 @@
 #define cutDeleteTimer(x) sdkDeleteTimer(x)
 __constant__ float sqrtOfPI = 1.77245385;
 
-//**************************************************************************
 __constant__ float muB = 11.823222f;
 __constant__ float muG = 16.465048f;
 __constant__ float muR = 18.527411f;
@@ -23,7 +22,6 @@ __constant__ float muR = 18.527411f;
 __constant__ float histRes = (float)histogramSize;
 __constant__ int cdf_samples_per_thread = CDFSAMPLES;
 __constant__ int cdf_threads = CDFSMEM;
-//**************************************************************************
 
 //unsigned int htimer;
 StopWatchInterface *htimer = NULL;
@@ -380,10 +378,11 @@ float cnt = 0.0f;
 int indexMax;
 int indexMin;
 float img_mean;
+
 float max_light = 0.0f;
 float min_light = 0.0f;
 
-//with Historgram Equalizer, sample
+
 unsigned int useLIGHT(float muLight, float sigS, float sigR, float logEffect, float exposure_pref, float rescalar, 
 		float* h_light, 
 		unsigned int* h_hist, 
@@ -467,7 +466,6 @@ unsigned int useLIGHT(float muLight, float sigS, float sigR, float logEffect, fl
 	
 	return (indexMax32-1);
 }
-
 
 unsigned int run = 1;
 unsigned int useLIGHT(float muLight, float exposure_pref){
