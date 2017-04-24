@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <cufft.h>
+#include <cublas_v2.h>
 
 #define PI 3.14159265
 #define natural_e 2.71828183
@@ -19,7 +21,7 @@
 #define CDFSMEM TPB
 #define CDFSAMPLES histogramSize/CDFSMEM
 
-#define BLOCK_DIM 16
+#define BLOCK_DIM 32
 
 #define BENCHMARK 1
 
@@ -35,6 +37,7 @@
 
 #define n_control 3
 #define NUM_DOMAINS 3
+
 
 extern "C"{
   void freeMem();

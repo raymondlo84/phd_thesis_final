@@ -18,8 +18,8 @@ LIBS += -L/usr/lib/ `pkg-config --libs opencv` `pkg-config --cflags opencv` -lm
 
 OBJECTS += $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 OBJECTS += $(patsubst %.cu,%.o,$(wildcard *.cu))
-CFLAGS += -O3 $(CUDA_INCLUDES) -I/usr/local/cuda/include 
-NVCC_FLAGS += -I/usr/local/cuda/samples/common/inc/
+CFLAGS += $(CUDA_INCLUDES) -I/usr/local/cuda/include 
+NVCC_FLAGS += -I/usr/local/cuda/samples/common/inc/ 
 LIBS += $(CUDA_LIB_DIRS) $(CUDA_LIBS)
 
 OBJECTS += main.o

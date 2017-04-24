@@ -337,12 +337,16 @@ int main(int argc, char *argv[]) {
 	float fps = 60.0f;
 	unsigned int downSize = 0;
 	float known_exposure = -1.0f;
+
 	//$hdr_exec $path/$file $path/$hdr_video_only $stops $skip $frames $fps
+
 	if (argc >= 7) {
 		capture = cvCaptureFromFile(argv[1]);
 		known_exposure = atof(argv[3]);
 		num_img = atoi(argv[5]);
 		fps = atof(argv[6]);
+	}else{
+		printf("Usage: renderer $source_hdr_video $output_video $stops_part $skip $frames $output_fps\n");
 	}
 
 	if (capture == NULL) {
@@ -368,7 +372,7 @@ int main(int argc, char *argv[]) {
 	int _b = 50;
 	int _c = 50;
 	int _total = 14;
-	int _toneP = 215;
+	int _toneP = 225;
 	int sigS = 20;
 	int sigR = 100;
 	int m = 150;
@@ -512,6 +516,9 @@ int main(int argc, char *argv[]) {
 
 	printf(";%d;%f\n", cnt, estimate_stop);
 
+
+
+
 	unsigned int bench_cnt = 0;
 	while ((frame = cvQueryFrame(capture)) != NULL) {
 		if (downSize == 0) {
@@ -531,6 +538,7 @@ int main(int argc, char *argv[]) {
 				pt = (unsigned char*) frame->imageData;
 			else
 				pt = (unsigned char*) qFrame->imageData;
+
 			rescale = rescale * 0.95f + 0.05f * (float) pt[max_index];
 		}
 
@@ -560,7 +568,6 @@ int main(int argc, char *argv[]) {
 	cvReleaseCapture(&capture);
 	cvReleaseVideoWriter(&video);
 	freeMem();
-
 	free(response_CPU);
 	free(cumulative_sum);
 	free(histogram);
