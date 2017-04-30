@@ -783,8 +783,10 @@ replaced by the values from the other LUT.
 In order for real-time HDR processing to be practical as a wearable device, a 45nm
 low-power Spartan-6 LX45 FPGA
 device\footnote{http://www.xilinx.com/products/silicon-devices/fpga/spartan-6/lx.htm}
-was selected for its low power consumption and portability.  The board
-contains two input HDMI ports used for receiving the baseband HD video
+was selected for its low power consumption and portability. 
+The supply power measured for the system is at 1.448W, thus it allows the application to run for 
+around $20$ hours on a typical rechargeable battery with capacity of $5800$mAh.
+The board contains two input HDMI ports used for receiving the baseband HD video
 (720p@60fps) and two output HDMI ports used for transmitting the
 processed HDR video frames. It also contains 128MB of DDR2 SDRAM
 (Micron MT47H64M16-25E, 16-bit data width), used for storing video
@@ -796,7 +798,7 @@ complexity guided us to invent novel approaches to HDR video processing.  Much o
 the processing is pre-computed and stored in LUTs to
 reduce complexity using the methods discussed in
 Section~\ref{realtime_hdr}.  Each pixel sample contains an 8-bit RGB
-colour component totalling 24 bits per pixel.  Each lookup table is
+colour component (24 bits per pixel).  Each lookup table is
 addressed by a color channel of two differently exposed frames.  A
 total of 16 bits is used for addressing into the LUT totalling
 65536 entries.  For an 8-bit wide sample output, the BRAM was configured
@@ -879,6 +881,10 @@ two lookups. The input of the LUT is multiplexed to correctly feed the
 bright and dark frames to the lookup. The output of the lookup table
 is then forwarded to a DVI encoder used for transmitting HDMI video.
 
+\subsection{Power Consumption}
+
+
+
 \section{HDR Compositing for GPU Architecture}
 
 In this section, a generalized HDR image composition method, which is optimized for GPU hardware 
@@ -900,8 +906,7 @@ without any frame drops.
 
 The proposed algorithm in this chapter can run in real-time (30 fps or higher on commodity graphics 
 hardware such as the NVIDIA 460 GTX graphics card at 1280x720 resolution) and requires no user 
-intervention in the HDR creation process.  The source code of the GPU implementation is listed in 
-\textbf{Appendix~\ref{apx:gpu}} for reference. 
+intervention in the HDR creation process.  The source code and benchmarking of the GPU implementation is listed in \textbf{Appendix~\ref{apx:gpu}} for reference.  
 
 \subsection{Direct Lookup method for combining exposures} \label{comp_2_lut_2}
 For the case of compositing two images with three-color (RGB) channels, one inverse comparametric 
@@ -1296,17 +1301,17 @@ milliseconds, benchmarked on a NVIDIA 460GTX, over 150 videos (over 100 minutes 
 the resolution of 1280x720 are as follows. The operations of pixel-to-photoquantity conversion and 
 the compression by logarithm requires on average $1.5ms$. Normalization on images are done using 
 efficient min/max finder from the NVIDIA's CUBLAS library, which costs around $0.8ms$ per call. The 
-spatial tone mapping is the least parallelizable part of the process, which consumes up to $12ms$. 
+spatial tone mapping is the most computational intensive part of the process, which consumes up to $12ms$. 
 The edge-preserving filtering for three layers executed in parallel takes up $11ms$ of runtime, 
 becomes the main contributor to the overall latency in the proposed HDR pipeline. This is due under 
-utilization of available thread pool of the GPU architecture. Per iteration the RF only requires as many 
+utilization of available thread pool of the GPU architecture.  Per iteration the RF only requires as many 
 threads as the size of one dimension of the image multiplied by the number of color channels. In the 
 proposed implementation, we launch the filter on a monotone channel, $L$ which is a gray scale 
 representation of the image, to reduce the total amount of computation required. Other optimization 
 techniques such as matrix transpose are applied to ensure coalesced memory access patterns. The 
 remainder of $1ms$ runtime is contributed by the contrast enhancement stage after obtaining the 
 layers using RF. Overall, the HDR composition and tonal range compression algorithm cost $17ms$ 
-(~60fps) on average, and that is suitable for real-time system. 
+(\~60fps) on average, and that is suitable for real-time system. 
 
 %The general rule in GPU computing is to avoid excessive memory transfer between the machine 
 %and graphics card. In our application, since every step can be computed using GPU, the memory 
@@ -1316,19 +1321,28 @@ layers using RF. Overall, the HDR composition and tonal range compression algori
 %access on GPU is usually expensive in comparison to shared memory and thread cache. Frequent 
 %access to read/write global memories as intermediate update could cause high latency and drop 
 %performance of the construction. Another expensive operation is due to thread synchronization 
-%after each kernel call. Therefore, 
+%after each kernel call. 
 
 %\begin{table}[!h]
 %\center
-%\caption{Average latency per stage of HDR construction for a $1280\times720$ image on a NVIDIA 
-%Tesla C2050 with 3 detail layers.}
+%\caption{Computation time per stage of HDR construction for a $1280\times720$ image on a NVIDIA GTX 1080 with 3 detail layers.}
 %\begin{tabular}{|l|c|}
 %\hline
-%Operation & Time (ms) \\
+%\bf{Operation} & Averaged time (ms) \\
 %\hline
-%Light space conversion & 1.5 \\
+%Memory Copy (Host to Device) & 0.523 \\
 %\hline
-%Local Contrast Enhancement with RF & 24.0 \\
+%Photoquantity Estimation & 0.512 \\
+%\hline
+%Log Compression and Normalization & 0.327 \\
+%\hline
+%Gradient Image & 0.114 \\
+%\hline
+%Layer Extraction with Recursive Filter & 9.693 \\
+%\hline
+%Gamma and Saturation Adjustment & 0.187 \\
+%\hline
+%Memory Copy (Device to Host) & 0.579 \\
 %\hline
 %\end{tabular}
 %\end{table}
@@ -1336,13 +1350,6 @@ layers using RF. Overall, the HDR composition and tonal range compression algori
 
 %\subsection{FPGA}
 %
-%The algorithm which uses direct look up table is implemented on a Spartan-6 LX45 FPGA device 
-%for its low power consumption and portability. %(See Fig~\ref{fig:FPGAHDRchitecture}). 
-%The supply power measured for the system is 1.448W, thus it allows the application to run for 
-%around $20$ hours on a typical rechargeable battery with capacity of $5800$mAh.
-%The board contains High Definition Multimedia Interface (HDMI) input ports used to receive video in 
-%$720\times480$ at 60 frames per second, and output HDMI ports used to transmit HDR video 
-%frames. 
 %Two differently exposed video frames of the same subject matter are supplied via the HDMI input in 
 %rapid succession, in an alternating order.
 %The frames are stored into memory and read out concurrently for composition.
