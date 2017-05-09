@@ -8,41 +8,17 @@ In one embodiment, a 3DHDR camera setup from multiple 3D cameras such as the Mic
 
 3DHDR might, more generally, be incorporated into existing 3D cameras, resulting in a new kind of 3D sensor that can work in nearly any environment, including high contrast scenes such as outdoor scenes, or scenes where a variable range is needed.
 
-\subsection{High Dynamic Range Imaging with Range Sensing Camera}
-HDR (High Dynamic Range) has been a well-known and well-studied field of
-research for 20 years.  As Roberston et al. reported:
-\begin{quote}
-``The first report of digitally combining multiple pictures
- of the same scene to improve dynamic range appears to be
- Mann~\cite{mannist}.
- Algorithmic detail that is lacking from Ref.~\cite{mannist} is
- provided in a later publication,~\cite{mannwyckofftr}
- where Mann and Picard explicitly examine the situation where multiple pictures,
- each of different exposures, are taken of a scene. They
- provide a method of merging these multiple exposures to
- form a single image with an effective dynamic range
- greater than that of the camera. By making use of certainty
- functions, which give a measure of the confidence in an
- observation, Mann and Picard weight the observations from
- the various exposures to provide the final image. The certainty
- function for a particular camera is computed as the
- derivative of the camera response function, which results in
- low confidence for pixel values near extremes, and higher
- confidence for pixel values
- between these extremes.''~\cite{robertson2003estimation}
-\end{quote}
+\section{High Dynamic Range Imaging with Range Sensing Camera}
 
-HDR photography~\cite{candocia1, candocia2, candocia3,wyckoff1962experimental,mannist}
-and video~\cite{mann2012hdrchitecture,lo2012high,mann2012realtime, HDRVideoCamera11, kang2003high}
-are attractive topics as they address one of the most fundamental problems of
-digital camera sensors namely their limited dynamic range.
+HDR photography~\cite{candocia1, candocia2, candocia3, wyckoff1962experimental, mannist} and video~\cite{mann2012hdrchitecture,lo2012high, mann2012realtime, HDRVideoCamera11, kang2003high} are attractive topics as they address one of the most fundamental problems of digital camera sensors namely their limited dynamic range. Moreover, HDR is not limited to being only applicable to color camera, but it can also be applied to cameras that operate outside the visible spectrum, such as infrared cameras, as well as to 3D sensing cameras such as time-of-flight or structured light camera by combining various exposures in different ranges. 
 
-Moreover, HDR is not limited to being only applicable to color cameras, but it can also be applied to cameras that operate outside the visible spectrum, such as infrared cameras, as well as to 3D cameras.  The light capturing mechanism of cameras, whether it be analog (film) or digital (CMOS/CCD sensors), can only record a limited range of information from any scene. Combining differently exposed images of the same scene can produce an image of higher range than any of the individual images used to create it. The invention of the infrared (IR) 3D camera proposed in this chapter brings forth the added spatial dimension and extends the spectral range that can be captured. Using both a visual light camera and an IR-3D camera allows the capture of an additional spatial dimension and extended spectral range. Applying HDR photography techniques to such a combined system not only increases the dynamic range of the visual camera but possibly also the range of the additional spatial dimension (e.g. making 3D cameras useful outdoors in bright sunlight or in high contrast scenes where glare from bare light bulbs might otherwise degrade the 3D data, or improving the range of the sensor in both long and short distance range).
+The light capturing mechanism of cameras, whether it be analog (film) or digital (CMOS/CCD sensors), can only record a limited range of information from any scene at a given time. Combining differently exposed images of the same scene can produce an image of higher range than any of the individual images used to create it. The invention of the active infrared-based 3D sensing camera proposed in this chapter brings forth the added spatial dimension and extends the spectral range that can be captured. Using both a visual light camera and an IR-3D camera allows the capture of an additional spatial dimension and extended spectral range. Applying HDR photography techniques to such a combined system not only increases the dynamic range of the visual camera but possibly also the range of the additional spatial dimension (e.g. making 3D cameras useful outdoors in bright sunlight or in high contrast scenes where glare from bare light bulbs might otherwise degrade the 3D data, or improving the range of the sensor in both long and short distance range).
 
 %Simultaneously on colour and infrared-3D (IR-3D) camera, on a Microsoft Kinect, and thus increases the visual range from the colour cameras and the depth range of the IR-3D camera. 
 
-\subsection{Conventional uses of Kinect: Motion Sensing and Surveillance}
-The Kinect system, from Microsoft, was designed to capture motion with the Microsoft Xbox 360 gaming console.  The Kinect system allows the gamer to interact with games without the need for physical controllers. It accomplishes this by tracking the user's movements and position in 3-D space, with respect to itself, in real-time. In normal use, the Kinect system is stationary and observes the gamer as he/she moves.  In this sense, the Kinect system was envisioned and created as a surveillance camera (i.e., to be borne by inanimate objects rather than to be worn). 
+\subsection{Conventional uses of Depth Sensor: Motion Sensing and Surveillance}
+
+The Kinect system from Microsoft was designed to capture motion with the Microsoft Xbox 360 gaming console.  The Kinect motion sensing system allows the gamer to interact with games without the need for physical controllers. It accomplishes this by tracking the user's movements and position in 3-D space, with respect to itself, in real-time based on random decision forest \cite{criminisi2011decision}. In normal use, the Kinect system is stationary and observes the gamer as he/she moves.  In this sense, the Kinect system was envisioned and created as a surveillance camera (i.e., to be borne by inanimate objects rather than to be worn). 
 
 %\begin{figure*}[!t]
 %\centering
@@ -111,7 +87,7 @@ When using the Kinect camera as a seeing aid, for self gesturing (gesture-sensin
 
 Thus, the problem of dynamic range must be solved in the sousveillance device itself without requiring a  change in the environment. Fortunately, advances in sensor technology have enabled the miniaturization of sensors and their use in a robust camera array setup. One way to address the dynamic range limitation is to combine various sensor signals and create a superset which surpasses the capability of any individual sensor alone.
 
-\subsection{Technology Behind the Microsoft Kinect system}
+\subsection{Technology Behind the Microsoft Kinect 3D Sensing System}
 The Microsoft Kinect system employs the PrimeSense 3D sensing technology. The PrimeSense 3D sensor uses light coding to compute the scene volume, using active infrared (IR) illumination~\cite{shpunt2008depth,shpunt2010optical,shpunt2007depth}. The sensor then uses a CMOS image sensor to read the light coding infrared patterns back from the scene as shown in Fig.~\ref{fig:ir_range_issue}. The coded light is processed by the PrimeSense SoC~\cite{spektor2009integrated}, contained in the 3D sensor, to calculate depth information. In many cases, one may notice that the infrared sensors may fail to observe objects which have high reflectance property (glossy surfaces) or high absorbance property (matte black finish surfaces). In these difficult cases, the idea of HDR comes in as by carefully adjusting the exposures, the sensors can adapt and observe what was not possible to see otherwise.
 
 \begin{figure*}
@@ -513,7 +489,7 @@ Our results suggest that by applying high dynamic range imaging technique to bot
 
 \section{Discussion}
 \label{sec_discussion}
-This chapter proposed a method to reconstruct 3DHDR scenes using one or more Kinect cameras. However, there are several trade offs we considered in our proposed configuration. In particular, there are several limitations to be addressed in future work to produce high-quality 3DHDR videos for everyday use.
+This chapter proposed a method to reconstruct 3DHDR scenes using one or more Kinect cameras. However, there are several trade offs we considered in our proposed configuration. In particular, there are several limitations to be addressed in future work to produce high-quality 3DHDR videos for everyday use. 
 
 \subsubsection{Interference among Kinect cameras}
 The Kinect camera uses structured light patterns to reconstruct 3D data from the scene with the help of an IR laser projector. When multiple Kinect devices are used in the same space, interference can reduce the accuracy of the depth measurements. Several approaches have been proposed to mitigate this problem (e.g., \cite{maimone2012reducing}). One solution is to combine different 3D sensing technologies such as time-of-flight 3D sensors (e.g., SoftKinetic) to reduce the interference between sensors. 
@@ -555,6 +531,8 @@ it will assume liability for any side effects of non-usage (e.g., if a person
 trips and falls because they were required to not wear their seeing aid).
 Moreover, sousveillance may provide a necessary
 balance-of-power between the authorities and individuals.
+
+This work can further extended on 3D mapping and reconstruction technique such as KinectFusion, an real-time dense surface mapping and tracking technique which allows user to reconstruct a full 3D scene. By combining 3DHDR with KinectFusion, we can expect a high tonal range (HDR) 3D scene that can eventually be used in photo-realistic rendering to create surreal experience in virtual or augmented reality applications~\cite{agusanto2003photorealistic}. 
 
 \section{Conclusion}
 We successfully demonstrated a 3DHDR camera constructed from two
