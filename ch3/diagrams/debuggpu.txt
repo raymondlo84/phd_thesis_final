@@ -1,0 +1,22 @@
+System Specification: 
+OS: Ubuntu 16.04, 
+Libraries: CUDA 8.0, OpenCV 3.0
+CPU:  Intel i7-6950x
+GPU: NVIDIA GTX 1080
+Video Resolution: 1920x1080
+Camera: Canon 5D Mark III, Customized Firmware
+
+Transfer to Device: 0.523000 ms
+HDR Image Composition: 0.512000 ms
+Log Compression: 0.645000 ms
+Low Pass Filter: 0.790000 ms
+Normalization: 0.839000 ms
+Gradient Image: 0.953000 ms
+Recursive Filter (Layer 1): 0 4.153000 ms
+Recursive Filter (Layer 2): 1 7.339000 ms
+Recursive Filter (Layer 3): 2 10.519000 ms
+Tone Mapping (Combine Layers):  10.519000 ms
+Gamma and Saturation Correction: 10.833000 ms
+
+Average: 11.0887 ms
+Average FPS: ~ 90 fps

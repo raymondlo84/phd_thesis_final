@@ -5,7 +5,9 @@
 % in the abstract
 %\section{Abstract}
 Three Dimensional (3D) range cameras have recently appeared in the marketplace for use in surveillance
-(e.g. cameras affixed to inanimate objects) applications. In this chapter, FreeGlass as a wearable hands-free 3D gesture-sensing Digital Eye Glass system is presented. FreeGlass comprises a head-mounted display with an infrared range camera, both connected to a wearable computer and Digital Eye Glass system which embodies HDR (High Dynamic Range) and AR (Augmented/Augmediated Reality). FreeGlass recontextualizes the 3D range camera as a sousveillance (e.g. cameras attached to people) camera. In this sousveillance context, the range camera is worn by the user and shares the same point-of-view as the user. Computer vision algorithms therefore benefit from the use of the range camera to allow image segmentation by using both the infrared and depth information from the device for 3D hand gesture recognition system. The gesture recognition is then accomplished by using a neural network on the segmented hand. Recognized gestures are used to provide the user with interactions in an augmediated reality environment. Additionally, we present applications of FreeGlass for serendipitous gesture recognition in everyday life, as well as for interaction with real-world objects (with and without gesture recognition)~\cite{buchmann2004fingartips,billinghurst2001collaboration,billinghurst2008tangible,kawashima2001magic}. A plurality of FreeGlass units can be used together, each sensor having a different spreading sequence, or the like, so that a number of people can collaborate and share the same or similar Augmediated Reality space(s)~\cite{billinghurst2002collaborative,billinghurst2000mixing}.
+(e.g. cameras affixed to inanimate objects) applications. In this chapter, FreeGlass as a wearable hands-free 3D gesture-sensing Digital Eye Glass system is presented. FreeGlass comprises a head-mounted display with an infrared range camera, both connected to a wearable computer and Digital Eye Glass system which embodies HDR (High Dynamic Range) and AR (Augmented/Augmediated Reality). FreeGlass recontextualizes the 3D range camera as a sousveillance (e.g. cameras attached to people) camera. In this sousveillance context, the range camera is worn by the user and shares the same point-of-view as the user. Computer vision algorithms therefore benefit from the use of the range camera to allow image segmentation by using both the infrared and depth information from the device for 3D hand gesture recognition system. The gesture recognition is then accomplished by using a neural network on the segmented hand. Recognized gestures are used to provide the user with interactions in an augmediated reality environment. Additionally, we present applications of FreeGlass for serendipitous gesture recognition in everyday life, as well as for interaction with real-world objects (with and without gesture recognition)~\cite{buchmann2004fingartips,billinghurst2001collaboration,billinghurst2008tangible,kawashima2001magic}. 
+
+A plurality of FreeGlass units can be used together, each sensor having a different spreading sequence, or the like, so that a number of people can collaborate and share the same or similar Augmediated Reality space(s)~\cite{billinghurst2002collaborative,billinghurst2000mixing}.
 
 \begin{figure}
 \begin{subfigure}[b]{\columnwidth}
@@ -33,8 +35,8 @@ the user's point of view, aligning with the displayed subject matter~\cite{lo201
 %\section{Introduction}
 \section{Introduction}
 In recent years, gesture-based controls have been incorporated into various
-mobile devices such as smartphones and tablets~\cite{androidgestures,bbgeestures,bbgesturesz10}. Most of these
-devices rely on the multi-touch surface as their gesture interfaces. Other
+mobile devices such as smartphones and tablets~\cite{ording2010portable,miyaki2009graspzoom,tsukadaa2001ubi,bbgeestures}. 
+Most of these devices rely on the multi-touch surface as their gesture interfaces. Other
 gesture recognition systems, such as the Microsoft Kinect, utilize an
 infrared range camera as the input device~\cite{msprimesense2010press},
 which provides the user with ``hands-free'' input (not needing to hold any
@@ -112,18 +114,18 @@ Hand gesture recognition consists of two main components:
 Hand detection concerns itself with how to robustly determine the contour of the hand in an environment with a complex background. Gesture recognition concerns itself with correctly interpreting each gesture.
 
 To achieve hand detection, many researchers take advantage of controlled environments, such as those having constant lighting and a static background, e.g. no relative motion between the camera and the
-background~\cite{imagawa1998color, hong2000gesture}. However, these methods are not reliable in the real world in uncontrolled everyday moving environments with complex lighting and continuous
-background changes. Particularly, our proposed system utilizes a wearable camera that is always moving relative to the background, and thus the assumption of having a static background is often not applicable. Other methods focus on tonal based features, such as skin color segmentation~\cite{kjeldsen1996toward}. These features are not robust against dynamic lighting condition and non-static backgrounds, for example, similar colours between the background and human skin. In addition, some methods use specially coloured gloves or other sensing device such as the data glove to provide additional information for the segmentation~\cite{sturman1994survey}.
-Recognizing the problems in the methods discussed above, we explore an alternative method based on the depth information provided by an infrared range camera, such as a PrimeSense camera, to perform close range hand
-detection, segmentation, etc., as well as discernment between foreground (one's own hands) and background.
+background~\cite{imagawa1998color, hong2000gesture}. In 2015, Huidong Bai et al. presented a free-hand gesture interface for augmented reality interaction~\cite{bai2015free} specifically for exhibition podium setup. However, these methods are not designed for the real world scenario as wearers are in an uncontrolled everyday moving environments with complex lighting and continuous background changes. 
+
+Our proposed system utilizes a wearable camera that is always moving relative to the background, and thus the assumption of having a static or known (i.e., pre-scanned or pre-captured) background is often not applicable. Other methods focus on tonal based features, such as skin color segmentation~\cite{kjeldsen1996toward}. In the work presented by M. Lee et al.~\cite{lee20083d}, a computer vision-based 3D hand tracking was implemented for enabling user interaction in augmented reality applications. The approach is based on 3D stereo cameras to extract depth information and relied on skin color to segment the hand from the scene. These features, however, are not robust against dynamic lighting condition and non-static backgrounds, for example, similar colours between the background and human skin. In addition, some methods use specially coloured gloves or other sensing device such as the data glove to provide additional information for the segmentation~\cite{sturman1994survey}.
+
+Recognizing the problems in the methods discussed above, we explore an alternative method based on the depth information provided by an infrared range camera, such as a PrimeSense camera or SoftKinetic's 3D time-of-flight camera, to perform close range hand detection, segmentation, etc., as well as classification for the discernment between foreground (one's own hands) and background. 
 
 Whereas surveillance-based systems can use background subtraction, and thus can actually work quite well even with 2D cameras, the newer 3D cameras actually provide much greater benefit to wearable applications than they do to their original surveillance (cameras affixed in the environment) applications.
 
-The PrimeSense 3D camera computes a depth map which contains information of an object's distance with respect to the camera. The depth map can be considered as an additional dimension of information for feature extraction
-and image segmentation~\cite{ren2011robust, uebersax2011real}.
+The PrimeSense 3D camera computes a depth map which contains information of an object's distance with respect to the camera. The depth map can be considered as an additional dimension of information for feature extraction and image segmentation~\cite{ren2011robust, uebersax2011real}.
 
 Most of the current approaches use infrared range cameras only from a third person
-perspective (i.e. surveillance). In these third-person applications the assumption is made that there is no confusion between the hand's depth information with other objects in the environment. Besides the infrared range camera, some approaches use a combination of a single color camera, a stereo color camera and a thermal camera to obtain additional information for image processing and image de-noising~\cite{appenrodt2010data}. These methods achieve promising results in the static indoor setting for which they were designed.
+perspective (i.e. surveillance). In these third-person applications the assumption is made that there is no confusion between the hand's depth information with other objects in the environment. Besides the infrared range camera, some approaches use a combination of a single color camera, a stereo color camera and a thermal camera to obtain additional information for image processing and image de-noising~\cite{appenrodt2010data}.  These methods achieve promising results in the static indoor setting for which they were designed. 
 
 Other gesture recognition devices such as the Leap Motion controller are
 designed to capture hand gestures from a bottom-up perspective~\cite{leapmotion}. Only more recently, a head-mounted setup of Leap Motion controller was released and provided robust hand tracking with pose estimation. Since this device is not equipped with a color camera, it is not the ideal candidate for wearable augmented/mediated/augmediated reality applications where the gesture command needs to be recognized in the real world of everyday life outside the confines of a controlled environment. Also, there are software
@@ -136,14 +138,16 @@ the application's gesture commands are performed in a very close range setting s
 is mounted on the user's head. For this reason, in self-gesturing, the gesture commands are not
 recognizable by the depth map algorithms provided by the OpenNI framework.
 
-Lastly, other 3D cameras such as the true time-of-flight camera
-from SoftKinetic\footnote{http://www.softkinetic.com/fr-be/products/depthsensecameras.aspx} can
-be used to perform the segmentation and extraction of hand features with our
-FreeGlass system (see Figure~\ref{fig:3Dcamera_head}). However, these
-sensors are designed for short range depth extraction and thus lack the ability
-to sense the environment for augmediated reality purposes. The current
-limitations and the future direction of a novel hybrid sensor approach will
-be further discussed in the future work section.
+In 2014, Taejin Ha et al. proposed the WeARHand system which uses RGB-D camera to provide bare-hand user interaction with visually enhanced depth perception clues such as occlusion for interaction~\cite{ha2014wearhand}. The proposed approach also paired up with a short range time of flight depth sensor and long range structured light sensor to track far range and close range objects. By utilizing the depth sensors, the proposed hand tracking solution enables user to interact with virtual objects without use of any controllers. Similarly in the same year, various hand tracking solutions based on near-range depth sensor were also proposed by Gabyong Park et al.~\cite{park2014hand}.
+
+However, these systems are based on a feature based hand tracking (i.e., detecting fingers, and hand palm position) and suffers various tracking issues due to variance in user's hand size, and also occlusion issues. In this chapter, we proposed the framework for machine learning based training and classification approach which allow one to continuously improve the system over time by training the system further in the future. 
+
+%Lastly, the true time-of-flight camera from SoftKinetic\footnote{http://www.softkinetic.com/fr-be/products/depthsensecameras.aspx} be used to perform the segmentation and extraction of hand features with our
+%FreeGlass system (see Figure~\ref{fig:3Dcamera_head}). However, these
+%sensors are designed for short range depth extraction and thus lack the ability
+%to sense the environment for augmediated reality purposes. The current
+%limitations and the future direction of a novel hybrid sensor approach will
+%be further discussed in the future work section. 
 
 \subsection{Proposed Method}
 For a mobile or a wearable platform, we attempt to minimize the number of

@@ -1087,7 +1087,7 @@ Consequently, it reduces the over-stretching effect of equalization.
 \begin{subfigure}[b]{6.2in}
 \centering
   \includegraphics[width=6.0in]{ch2/diagrams/frames/5stops/final_tm_result.jpg}
-  \caption{The proposed result~\cite{lo2012high}}
+  \caption{The implemented system~\cite{lo2012high}}
   \label{fig:proposed_result}
 \end{subfigure}
 %        ~
@@ -1302,6 +1302,7 @@ the resolution of 1280x720 are as follows. The operations of pixel-to-photoquant
 the compression by logarithm requires on average $1.5ms$. Normalization on images are done using 
 efficient min/max finder from the NVIDIA's CUBLAS library, which costs around $0.8ms$ per call. The 
 spatial tone mapping is the most computational intensive part of the process, which consumes up to $12ms$. 
+
 The edge-preserving filtering for three layers executed in parallel takes up $11ms$ of runtime, 
 becomes the main contributor to the overall latency in the proposed HDR pipeline. This is due under 
 utilization of available thread pool of the GPU architecture.  Per iteration the RF only requires as many 
@@ -1312,6 +1313,34 @@ techniques such as matrix transpose are applied to ensure coalesced memory acces
 remainder of $1ms$ runtime is contributed by the contrast enhancement stage after obtaining the 
 layers using RF. Overall, the HDR composition and tonal range compression algorithm cost $17ms$ 
 (\~60fps) on average, and that is suitable for real-time system. 
+
+The system is also tested against the most modern consumer hardware and the debug log is shown in \textbf{Listing~\ref{debuggpu}}. The advance in GPUs had provided us sufficient processing power to perform the same algorithm with 4 times the resolution (i.e., 1920x1080 instead of 1280x720), and equivalent to 6 times the performance improvement in processing time. With the latest CUDA 8.0 library and latest NVIDIA GTX 1080 graphics card, we can obtain over 90Hz for computing the 1920x1080 resolution HDR videos. The source code which supports latest graphics card and latest CUDA library in 2017 are listed in \textbf{Appendix~\ref{apx:gpu}}.
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+\label{debuggpu}\lstinputlisting[caption={HDR CUDA Performance Debug Log}, label={debuggpu}]{ch3/diagrams/debuggpu.txt}
+
 
 %The general rule in GPU computing is to avoid excessive memory transfer between the machine 
 %and graphics card. In our application, since every step can be computed using GPU, the memory 
@@ -1484,16 +1513,16 @@ The Digital Eye Glass can also provide real-time training data and perform real-
 use case is a set of welding instruction is provided to the user in real-time as the person is welding. 
 The eyeglasses automatically track and judge the distance and speed required and such real-time 
 feedback is critical for the success or failure of the task. In addition, remote experts, who can even be 
-oversea, can provide audio and visual feedbacks and perform any corrective actions. 
+overseas, can provide audio and visual feedbacks and perform any corrective actions. 
 
 \begin{figure*}
 \center
  \includegraphics[width=2in]{ch2/diagrams/remote1.jpg}
  \includegraphics[width=2in]{ch2/diagrams/remote3.jpg}
  \includegraphics[width=2in]{ch2/diagrams/remote2.jpg}
- \caption{Remote expert application for TIG Welding. An augmented reality interface is overlayed 
-onto the actual welding scene to instruct the user on how to weld in real-time. Wearer can see the 
-instruction, and get real-time feedback from remote user with the prototype system. Most important, 
+ \caption{A prototype of the remote expert application for TIG Welding. An augmented reality interface is 
+overlayed onto the actual welding scene to instruct the user on how to weld in real-time. Wearer can see 
+the instruction, and get real-time feedback from remote user with the prototype system. Most important, 
 the 3D HDR feature allows clear view of the welding works and the instructions all at the same time 
 without any distractions~\cite{mann2012hdrchitecture}.}
  \label{fig:extremeremote}
