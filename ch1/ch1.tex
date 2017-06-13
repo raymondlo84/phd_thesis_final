@@ -10,25 +10,25 @@ gives rise to superhuman intelligence within the single `cyborg' being."
 \end{savequote}
 
 \chapter{Introduction}
-Fundamentally, human is ``bandwidth-limited". We can only see so far or resolve so much information 
+Fundamentally, human sensory capacity is ``bandwidth-limited". There are limits to how far humans can see, or how much information they can process, 
 %-- the human eye has an angular resolution of approximately 1 arcminute or 1/60 degree
 \cite{ophthalmology3rd}. We can only sense so much information 
 %-- human can only perceive  physical stimuli above a certain threshold
 and we can only detect a limited spectrum of light and sound~\cite{laming1986weber}. We can only process information at a limited rate~\cite{martin2009thermodynamics}.
 %%of about 30 to 100 bits/s%
 
-To overcome these limitations, we have created many tools and 
-inventions that revolutionized the way we ``see'' and understand this world. The first invention of 
-eyeglasses (or glasses) -- a pair of plastic or glass lenses which had a specific prescription and was 
+To overcome these limitations, people have created many tools and 
+inventions to revolutionize the way we ``see'' and understand our world. The first invention of 
+eyeglasses -- a pair of plastic or glass lenses which had a specific prescription and was 
 mounted in a frame that held them in front of a person's eyes -- was first documented in the 12th 
 century~\cite{rosen1956invention} and was primarily used to correct for refractive errors. Today, 
 specialized eyeglasses are also used for purposes such as magnifying an object of interest during a 
 surgical procedure and protecting our eyes in more dangerous settings including welding or high-
 power laser procedures. Modern advancements in technology, particularly in processing power and 
 sensor capability, have allowed us to overcome our own limitations by enabling the creation of novel 
-devices that can receive and process information much faster and in more versatile ways than human. 
+devices that can receive and process information much faster and in more versatile ways than humanly possible before. 
 It is clear that such advancements have surpassed the pace of our own biological evolution. This 
-dissertation presents the design of a digital form of eyeglasses that can significantly improve our 
+dissertation presents the design of a digital form of eyeglass that can significantly improve our 
 vision, extend our sensory capabilities, and create a new form of human computer interaction that is 
 truly human-centric. 
 
@@ -36,13 +36,13 @@ truly human-centric.
 \label{introdigitalglass}
 
 In the 1960s, Ivan Sutherland first described the concept of a head-mounted three dimensional 
-display system which presents the user with a virtual, perspective-corrected, image that changes with 
+display system which presented the user with a virtual, perspective-corrected, image that changes with 
 respect to the user's head movement~\cite{sutherland1968head}. The apparatus, as shown in 
 Fig.~\ref{ivanfullsetup}, was cumbersome and had to be mounted in the ceiling with a mechanical arm 
 due to its weight and size. The display can only render a transparent ``wire frame" line drawing and no 
 additional user inputs, such as hand gesture, can be provided. Most importantly, this concept was not 
-ubiquitously adopted at the time because the rendered content does not provide information in a 
-meaningful way with the real world. Despite all these shortcomings, this initial prototype inspired 
+ubiquitously adopted at the time because the rendered content did not provide information in a 
+meaningful way with the real world. Also the information it provided had no direct connection with the real world (i.e. it was purely fictional, in the form of a cube rendered into space, but having nothing to do with that space). Despite all these shortcomings, this initial prototype inspired 
 further research based on head-mounted systems for human-computer interaction 
 ~\cite{feiner1993knowledge,feiner1997touring,caudell1992augmented,stoakley1995virtual,billinghurst2015rapid,kato1999marker,billinghurst2002augmented}.
 
@@ -74,16 +74,16 @@ projected to the user's eyes through the half-silvered mirrors. The apparatus al
 both the real world and virtual images at the same time and perform simple interaction with head 
 motion~\cite{sutherland1968head}. (c) The mechanical, ultrasonic head position sensors, which were mounted in the ceiling and 
 were designed at the MIT Lincoln Laboratory by Charles Seitz and Stylianos Pezaris, were used to 
-retrieve the head position and orientation in real time~\cite{sutherland1968head}.}
+retrieve the head position and orientation in real time~\cite{sutherland1968head}.  Shortcomings: (1) the material presented by this apparatus had no bearing on the real world, i.e. simply a wireframe cube, i.e. a fictional reality of sorts, and (2) the device was not a true wearable computer in the sense that it was a tethered desktop system.}
 \label{ivanfullsetup}
 \end{figure*}
 
 \subsection{History of Wearable Computing}
-In 1974, Mann invented the S.W.I.M. (Sequential Wave Imprinting Machine) which included a special kind of lock-in amplifier and wearable computer that could sweep for surveillance devices, and display the results of this "bug sweeping" activity on a linear array of sequentially illuminated light sources\cite{mann1992wavelets, impulse, mann2014sightfield, kineveillance}.
+In 1974, Mann invented the S.W.I.M. (Sequential Wave Imprinting Machine) which included a special kind of lock-in amplifier and wearable computer that could sweep for surveillance devices, and display the results of this "bug sweeping" activity on a linear array of sequentially illuminated light sources\cite{mann1992wavelets, impulse, mann2014sightfield, kineveillance}.  This system introduced the concept of "real reality" (phenomenological augmented reality) in contrast to virtual (fictional) reality of previous systems~\cite{mann2015par}.  Phenomenal/phenomenological augmented reality (PAR) is the reality of real physical phenomena/phenomenology such as sound waves, radio waves, veillance flux, etc., or other similar means of seeing beyond the usual visible spectrum.
 
 In the 1980s, the idea of a Digital Eye Glass, Wearable Computer (WearComp) was introduced by 
 Mann~\cite{mannaaai361, mann1994mediated, mannwyckofftr, aimone2003eyetap} as a 
-practical realization of humanistic computing~\cite{mann2001wearable, 
+practical realization of humanistic computing/humanistic intelligence (HI)~\cite{mann2001wearable, 
 intelligentimageprocessing,presenceconnect,mann260}, and an extension of human capability for our 
 everyday life. The WearComp project significantly transformed the way we think about wearable 
 computers by proposing a framework for the integration of human into the signal processing path, 
@@ -97,12 +97,12 @@ ubiquitous, wearable computing.
 \begin{figure}[htb]
 \center
  \includegraphics[width=5.5in]{ch1/figures/cyborgs.jpg}
- \caption{This picture showed the early members who experimented with the wearable computer and applications at MIT Media Lab in 1996. Particularly, individuals were wearing computers which were connected wirelessly to create the 'safety net', an application which allows users to provide crime watching by sharing their individual image streams~\cite{mann1997smart}. Image source: \url{http://www.wearcam.org/computing.html/imageinfo.html}. 
+ \caption{This picture shows the early members of the MIT wearable computing project founded (http://wearcam.org/nn.htm) by S. Mann (pictured leftmost) at MIT Media Lab. Particularly, individuals are pictured wearing computers which were connected wirelessly to create what Mann referred to as a 'safety net', an application which allows users to provide health and safety through sharing of sensory data streams~\cite{mann1997smart}. Image source: \url{http://www.wearcam.org/computing.html/imageinfo.html}. 
  }
  \label{fig:cyborgs}
 \end{figure}
 
-Furthermore, Thad Starner designed the wearable computer called ``The Lizzy'' based on the PC/104 form factor~\cite{starner1997augmented} in 1996. By continuously wearing computers in everyday life, a set of novel wearable applications such as``Augmented Memory"~\cite{starner1997augmented} which automatically augment based on the context of the user and augmented reality applications which provide face detection and finger tracking~\cite{rhodes1997wearable} were emerged.  These applications, however, often suffers from the lack of high fidelity display for information displays, the lack of robust sensors for recognizing gestures, and the lack of processing power and tracking capability to be truly practice for daily use.
+Subsequent to Mann's starting of the wearable computing project in the early 1990s, Thad Starner designed a wearable computer called ``The Lizzy'' based on the PC/104 form factor~\cite{starner1997augmented} in 1996. By continuously wearing computers in everyday life, a set of novel wearable applications such as``Augmented Memory"~\cite{starner1997augmented} which automatically augment based on the context of the user and augmented reality text-based applications, emerged.  Mann's wearable face recognizer\cite{mannaaai1996} in 1996, and finger tracking\cite{mannieeecomputer1997}, was also built upon by others, where face detection and finger tracking~\cite{rhodes1997wearable} were emerged.
 
 %Then Feiner\~cite{}
 
@@ -116,7 +116,7 @@ Furthermore, Thad Starner designed the wearable computer called ``The Lizzy'' ba
 \begin{figure}[htb]
 \center
  \includegraphics[width=5.5in]{ch1/figures/steve5.jpeg}
- \caption{(a) Mann's original work for the ``photographer's assistant" application. The early prototype 
+ \caption{(a) Mann's original wearable computer and phenomenological augmented reality system. The early prototype 
 of the WearComp is a backpack-based computer system with a right eye display mounted on a 
 helmet. Two radio wireless antennas run at different frequencies for full-duplex radio link for voice, 
 video, and data communication~\cite{mann1994mediated}. (b) Prototypes of input devices with the WearComp 
@@ -161,7 +161,7 @@ Hololens\footnote{\url{https://www.microsoft.com/microsoft-hololens/en-us}} and 
 2\footnote{\url{https://www.metavision.com/}}) which provide a platform for the community to develop 
 Aug-mediated Reality applications~\cite{mann1994mediated}.
 
-%Metaveillance/Metavision is the veillance of veillance (vision of vision), i.e. the sensing of sensors and the sensing of their capacity to sense. In the same way that a meta-conversation is a conversation about conversations, meta data is data about data, etc., metavision is the vision of vision. Metaveillance/metavision, when combined with abakography, results in a phenomenological augmented reality that makes real-world physical phenomena visible~\cite{toposculpting_ccece2014}.
+Metaveillance/Metavision is the veillance of veillance (vision of vision), i.e. the sensing of sensors and the sensing of their capacity to sense. In the same way that a meta-conversation is a conversation about conversations, meta data is data about data, etc., metavision is the vision of vision. Metaveillance/metavision, when combined with abakography, results in a phenomenological augmented reality that makes real-world physical phenomena visible~\cite{toposculpting_ccece2014}.
 
 Mann's metaveillance apparatus evolved toward a general-purpose wearable computer with wearable camera and display, equipped with gesture-sensing capabilities, so that it responds to the wearer's own self-gestures (e.g. it can see the wearer's own hands and thus create an interactional space in which the main design tools that the user uses are his or her own hands)~\cite{mannieeecomputer}. Mann's coined the term "Synthetic Synesthesia of the Sixth Sense", often abbreviated "SixthSense", to describe these gesture-based wearable computer systems~\cite{cyborg, geary2002body}.
 
@@ -172,7 +172,7 @@ In 2012, Mann and Gribetz joined forces in a collaboration that combined Mann's 
 By further adding the Toposculpting invention, a combination of three important technologies resulted:
 1. Sixth Sense;
 2. Metaveillance/Metavision;
-3. Toposcuplting (topological sculpting), i.e. using 3D gesture-recognition for computational lightpainting by way of wearable computational photography for abakographic user-interfaces~\cite{patentmetabakography}. Subsequently, Gribetz (CEO and founder), Mann (Chief Scientist), and Lo (Chief Technology Officer and co-founder) joined forces to found the new company Meta Company, and introduce to the world the concept of Extramissive Spatial Imaging Glass~\cite{gribetz2014extramissive}. 
+3. Toposcuplting (topological sculpting), i.e. using 3D gesture-recognition for computational lightpainting by way of wearable computational photography for abakographic user-interfaces~\cite{patentmetabakography}. Subsequently, Gribetz (CEO and co-founder), Mann (Chief Scientist and co-founder), and Lo (Chief Technology Officer and co-founder) joined forces to found the new company Meta Company, and introduce to the world the concept of Extramissive Spatial Imaging Glass~\cite{gribetz2014extramissive}. 
 
 \section{A Theory of Glass: Background information}
 %{\bf Note to reviewers:}
@@ -186,8 +186,8 @@ for Aug-mediated Reality, i.e. a visual reality that can be augmented or
 deliberately diminished to, for example, help people see better by enhancing the image through 
 magnification or contrast improvement in their everyday life through a `visual 
 filter'~\cite{mann1994mediated}. 
-In this sense, this is originally referred to as ``Glass'' rather than ``Glasses'' (the more common plural 
-form of the word), as shown in Fig.~\ref{fig:glass}. 
+In this sense, EyeTap was originally referred to as ``Glass'' rather than ``Glasses'' (the more common plural 
+form of the word), as shown in Fig.~\ref{fig:glass} (the ``glass eye'' effect). 
 
 \begin{figure}
 \center
@@ -223,7 +223,7 @@ glass
 mediated vision, and about one full day to return to seeing properly (normally) after removing the 
 glass~\cite{stratton1897vision}.
 
-It is observed that mappings that deviate moderately from what the unaided eye saw, were harder to 
+It was observed that mappings that deviate moderately from what the unaided eye saw, were harder to 
 ``forget'' than mappings that were either closer to or further from what the unaided eye saw.  The 
 camera must, in effect be the eye itself, if we were to avoid the strange ``flashback'' effects and other 
 fatigues due to accommodation to the Generation-1 Glass ~\cite{schor1987fatigue}.
@@ -307,7 +307,7 @@ detail in 2001~\cite{intelligentimageprocessing} (Fig.~\ref{fig:mann_glass_googl
 \end{figure}
 
 \subsection{Generation-5 Glass}
-To further extend on the earlier work, Generation-5 is defined as being bi-directional in its light sensing 
+To further expand on the earlier work, Generation-5 is defined as being bi-directional in its light sensing 
 and light output capabilities.  In this way, the Gen-5 Glass senses both the scene in front of the wearer 
 as well as the wearer's
 own eyes; it also illuminates both the wearer's eyes and the scene in front of the wearer 
@@ -382,8 +382,8 @@ questions lead to the field of research in Humanistic Intelligence (HI).
 \begin{figure}[htb]
 \center
  \includegraphics[width=6.0in]{ch1/figures/Humanistic_intelligence_wearcompdef_multichannel6only.png}
- \caption{The six signal flow paths in Humanistic Intelligence Framework. These six signal flow paths 
-each defines one of the six attributes of WearComp~\cite{mann2001wearable}.}
+ \caption{The six signal flow paths in the Humanistic Intelligence Framework. These six signal flow paths 
+each define one of the six attributes of WearComp~\cite{mann2001wearable}.}
  \label{fig:hiflow}
 \end{figure}
 
