@@ -60,7 +60,7 @@
 %%    further customize the layout and/or formatting of the document.
 
 %% *** Add any desired options. ***
-\documentclass[doublespaced]{ut-thesis}
+\documentclass{ut-thesis}
 
 %% *** Add \usepackage declarations here. ***
 %% The standard packages `geometry' and `setspace' are already loaded by
@@ -152,7 +152,7 @@
 %% However, if your document is two-sided and you want the abstract
 %% _not_ to appear on the back of the title page, then uncomment the
 %% following line.
-%\cleardoublepage
+\cleardoublepage
 
 %% This generates the abstract page, with the line spacing adjusted
 %% according to SGS guidelines.
@@ -181,11 +181,11 @@
 
 %% This generates a "dedication" section, if needed
 %% (uncomment to have it appear in the document).
-\begin{dedication}
+%\begin{dedication}
 %% *** Put your Dedication here. ***
-\input{dedication/dedication.tex}
+%\input{dedication/dedication.tex}
 
-\end{dedication}
+%\end{dedication}
 
 %% The `dedication' and `acknowledgements' sections do not create new
 %% pages so if you want the two sections to appear on separate pages,
@@ -193,9 +193,11 @@
 
 %% This generates an "acknowledgements" section, if needed
 %% (uncomment to have it appear in the document).
-%\begin{acknowledgements}
+\begin{acknowledgements}
 %% *** Put your Acknowledgements here. ***
-%\end{acknowledgements}
+\input{dedication/dedication.tex}
+
+\end{acknowledgements}
 
 %% This generates the Table of Contents (on a separate page).
 \tableofcontents
@@ -206,7 +208,7 @@
 
 %% This generates the List of Figures (on a separate page), if needed
 %% (uncomment to have it appear in the document).
-%\listoffigures
+\listoffigures
 
 %% You can add commands here to generate any other material that belongs
 %% in the head matter (for example, List of Plates, Index of Symbols, or
